@@ -1,4 +1,8 @@
-# uba-AyEd1
+# Algoritmos y Estructuras de datos 1
+
+1er cuatrimestre 2022 \
+Lic. en ciencias de la computación \
+Universidad de Buenos Aires 
 
 ## Prácticas
 
