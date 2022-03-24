@@ -1,0 +1,108 @@
+\input{Base}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\graphicspath{ {images/} }
+
+\begin{document}
+
+\titulo{Práctica 1}
+\fecha{1er cuatrimestre 2022 }
+\materia{Algoritmos y Estructuras de Datos 1}
+\integrante{Yago Pajariño}{546/21}{ypajarino@dc.uba.ar}
+
+%Carátula
+\maketitle
+\newpage
+
+%Indice
+\tableofcontents
+\newpage
+
+% Aca empieza lo propio del documento
+\section{Práctica 1}
+
+\subsection{Ejercicio 1}
+
+Me piden determinar si dados p y q variables preposicionales, las expresiones son \emph{formulas bien formadas}.\\
+$\bigstar$ Rdo.: una formula está bien formada si cumple: 
+
+\includegraphics[width=\textwidth]{FBF}
+
+\subsubsection{Pregunta A}
+\begin{enumerate}
+    \item $(p \neg q)$ no es una fórmula bien formada.
+    \item $p \vee q \wedge True$ no es una fórmula bien formada pues da lugar a ambigüedad por la falta de paréntesis.
+    \item $p \vee q \wedge True$ no es una fórmula bien formada pues da lugar a ambigüedad por la falta de paréntesis.
+    \item $\neg (p)$ no es una fórmula bien formada pues el paréntesis es redundante.
+    \item $(p \vee \neg q \wedge q)$ no es una fórmula bien formada ya que la falta de paréntesis da lugar a ambigüedad.
+    \item $(True \vee True \vee True)$ es una formula bien formada.
+    \item $(\neg p)$ no es una formula bien formada ya que no hacen falta los paréntesis.
+    \item $(p \vee False)$ es una formula bien formada.
+    \item $(p = q)$ es una formula bien formada.
+\end{enumerate}
+
+\subsection{Ejercicio 2}
+\begin{enumerate}
+    \item Bien definida
+    \item Bien definida
+    \item Mal definida. El conector lógico $\vee$ solo acepta variables del tipo Bool pero x e y son $\mathbb{Z}$ 
+    \item Bien definida
+    \item Mal definida. $(z = 0)$ y $(z = 1)$ no tipa correctamente dado que z es de tipo Bool.
+    \item Mal definida. No tipa correctamente dado que $(y < 0)$ es de tipo Bool y la suma solo acepta números.
+\end{enumerate}
+
+\subsection{Ejercicio 3}
+Primero se evalúa $ \alpha = (3+7 = \pi - 8)$ que al ser una igualdad devuelve un valor del tipo Bool. Luego $\alpha \in \{True, False\}$
+y la fórmula resulta $\alpha \wedge True$ que está bien formada.
+
+\subsection{Ejercicio 4}
+Se que $a = True$, $b = True$, $c = True$, $x = False$, $y = False$
+
+\begin{enumerate}
+    \item True
+    \item True
+    \item False
+    \item True
+    \item True
+    \item True
+    \item False
+\end{enumerate}
+
+\subsection{Ejercicio 5}
+$\bigstar$ Rdo.: Ua fórmula es \textbf{tautología} si siempre toma el valor True, es \textbf{contradicción} si siempre toma el valor False,
+es \textbf{contingencia} si no es ni tautología ni contradicción.
+
+\subsubsection{Inciso A}
+\begin{tabular}{c|c}
+        p & (p $\vee$ $\neg$p) \\
+        V & V               \\
+        V & V               \\
+        F & V               \\
+        F & V
+\end{tabular}
+
+Es una tautología
+
+\subsubsection{Inciso B}
+\begin{tabular}{c|c}
+        p & (p $\wedge$ $\neg$p) \\
+        V & F               \\
+        V & F               \\
+        F & F               \\
+        F & F
+\end{tabular}
+
+Es una contradicción
+
+\subsubsection{Inciso C}
+\begin{tabular}{c|c|c|c|c }
+        p & q & ($\neg$p $\vee$ q) & (p $\rightarrow$ q) & (($\neg$p $\vee$ q) \Iff (p $\rightarrow$ q)) \\
+        V & V & F                  &                     &                                               \\
+        V & F & F                  &                     &                                               \\
+        F & V & F                  &                     &                                               \\
+        F & F & F                  &                     &                                               \\
+\end{tabular}
+
+Es una contradicción
+
+\end{document}
