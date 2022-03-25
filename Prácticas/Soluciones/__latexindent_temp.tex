@@ -1,6 +1,7 @@
 \input{Base}
 \usepackage{graphicx}
 \usepackage{amsfonts}
+\usepackage{enumitem}
 \graphicspath{ {images/} }
 
 \begin{document}
@@ -29,7 +30,7 @@ $\bigstar$ Rdo.: una formula está bien formada si cumple:
 \includegraphics[width=\textwidth]{FBF}
 
 \subsubsection{Pregunta A}
-\begin{enumerate}
+\begin{enumerate}[label=(\alph*)]
     \item $(p \neg q)$ no es una fórmula bien formada.
     \item $p \vee q \wedge True$ no es una fórmula bien formada pues da lugar a ambigüedad por la falta de paréntesis.
     \item $p \vee q \wedge True$ no es una fórmula bien formada pues da lugar a ambigüedad por la falta de paréntesis.
@@ -42,7 +43,7 @@ $\bigstar$ Rdo.: una formula está bien formada si cumple:
 \end{enumerate}
 
 \subsection{Ejercicio 2}
-\begin{enumerate}
+\begin{enumerate}[label=(\alph*)]
     \item Bien definida
     \item Bien definida
     \item Mal definida. El conector lógico $\vee$ solo acepta variables del tipo Bool pero x e y son $\mathbb{Z}$ 
@@ -58,7 +59,7 @@ y la fórmula resulta $\alpha \wedge True$ que está bien formada.
 \subsection{Ejercicio 4}
 Se que $a = True$, $b = True$, $c = True$, $x = False$, $y = False$
 
-\begin{enumerate}
+\begin{enumerate}[label=(\alph*)]
     \item True
     \item True
     \item False
@@ -87,22 +88,209 @@ Es una tautología
 \begin{tabular}{c|c}
         p & (p $\wedge$ $\neg$p) \\
         V & F               \\
-        V & F               \\
-        F & F               \\
         F & F
 \end{tabular}
 
 Es una contradicción
 
 \subsubsection{Inciso C}
-\begin{tabular}{c|c|c|c|c }
+\begin{tabular}{c|c|c|c|c}
         p & q & ($\neg$p $\vee$ q) & (p $\rightarrow$ q) & (($\neg$p $\vee$ q) \Iff (p $\rightarrow$ q)) \\
-        V & V & F                  &                     &                                               \\
-        V & F & F                  &                     &                                               \\
-        F & V & F                  &                     &                                               \\
-        F & F & F                  &                     &                                               \\
+        V & V & V                  & V                   & V                                              \\
+        V & F & F                  & F                   & V                                              \\
+        F & V & V                  & V                   & V                                              \\
+        F & F & V                  & V                   & V                                              \\
 \end{tabular}
 
-Es una contradicción
+Es una tautología. Recordar para usar como propiedad.
+
+\subsubsection{Inciso D}
+\begin{tabular}{c|c|c|c}
+        p & q & (p $\vee$ q) & ((p $\vee$ q) $\rightarrow$ p) \\
+        V & V & V              & V \\
+        V & F & V              & V \\
+        F & V & V              & F \\
+        F & F & F              & V
+\end{tabular}
+
+Es una contingencia.
+
+\subsubsection{Inciso E}
+
+Sean $\alpha$ = $\neg$(p $\wedge$ q); $\beta$ = ($\neg$p $\vee$ $\neg$q)
+
+\begin{tabular}{c|c|c|c|c}
+        p & q & $\alpha$ & $\beta$ & $(\alpha \Iff \beta)$\\
+        V & V & F & F & V \\
+        V & F & V & V & V \\ 
+        F & V & V & V & V \\
+        F & F & V & V & V 
+\end{tabular}
+
+Es una tautología. Demostración de DeMorgan.
+
+\subsubsection{Inciso F}
+\begin{tabular}{c|c}
+    p & (p $\rightarrow$ p) \\
+    V & V               \\
+    F & V
+\end{tabular}
+
+Es una tautología.
+
+\subsubsection{Inciso G}
+\begin{tabular}{c|c|c|c}
+        p & q & (p $\wedge$ q) & ((p $\wedge$ q) $\rightarrow$ p) \\
+        V & V & V              & V \\
+        V & F & F              & V \\
+        F & V & F              & V \\
+        F & F & F              & V
+\end{tabular}
+
+Es una tautología.
+
+\subsubsection{Inciso H}
+
+Sean $\alpha = (q\vee r)$ ; $\beta = (p \wedge q)$ ; $\sigma = (p \wedge r)$
+
+\begin{tabular}{c|c|c|c|c|c|c|c|c}
+    p & q & r & $\alpha$ & $(p \wedge \alpha)$ & $\beta$ & $\sigma$ & $(\beta \vee \sigma)$ & $((\beta \vee \sigma) \Iff (p \wedge \alpha))$\\
+    V & V & V & V & V & V & V & V & V \\
+    V & V & F & V & V & V & F & V & V \\
+    V & F & V & V & V & F & V & V & V \\
+    V & F & F & F & F & F & F & F & V \\
+    F & V & V & V & F & F & F & F & V \\
+    F & V & F & V & F & F & F & F & V \\
+    F & F & V & V & F & F & F & F & V \\
+    F & F & F & F & F & F & F & F & V
+\end{tabular}
+
+Es una tautología.
+
+\subsubsection{Inciso I}
+
+Sean $\alpha = (q\rightarrow r)$ ; $\beta = (p \rightarrow q)$ ; $\sigma = (p \rightarrow r)$
+
+\begin{tabular}{c|c|c|c|c|c|c|c|c}
+    p & q & r & $\alpha$ & $(p \rightarrow \alpha)$ & $\beta$ & $\sigma$ & $(\beta \rightarrow \sigma)$ & $((p \rightarrow \alpha) \rightarrow (\beta \rightarrow \sigma))$\\
+    V & V & V & V & V & V & V & V & V \\
+    V & V & F & F & F & V & F & F & V \\
+    V & F & V & V & V & F & V & V & V \\
+    V & F & F & V & V & F & F & V & V \\
+    F & V & V & V & V & V & V & V & V \\
+    F & V & F & F & V & V & V & V & V \\
+    F & F & V & V & V & V & V & V & V \\
+    F & F & F & V & V & V & V & V & V
+\end{tabular}
+
+Es una tautología.
+
+\subsection{Ejercicio 6}
+\begin{enumerate}[label=(\alph*)]
+    \item $\emph{False}$ es más fuerte que $\emph{True}$.
+    \item $(p \wedge q)$ es más fuerte que $(p \vee q)$.
+    \item $\emph{True}$ es más fuerte que $\emph{True}$ (Consultar).
+    \item $(p \wedge q)$ es más fuerte que $p$.
+    \item $\emph{False}$ es más fuerte que $\emph{False}$.
+    \item $p$ es más fuerte que $(p\vee q)$.
+    \item No hay relación de fuerza.
+    \item No hay relación de fuerza.
+\end{enumerate}
+
+La proposición más fuerte es $\emph{False}$ y la más débil es $\emph{True}$
+
+\subsection{Ejercicio 7}
+\subsubsection{Inciso A}
+
+\begin{align*}
+    (\neg p \vee \neg q) \vee (p \wedge q) &\rightarrow (p \wedge q) \\
+    \text{Por DeMorgan: } ((\neg(p \wedge q)) \vee (p \wedge q)) &\rightarrow (p \wedge q)
+\end{align*}
+
+\subsubsection{Inciso B}
+
+$\bigstar$ Rdo. Def PROP: $(a \rightarrow b) \Iff (\neg a \vee b)$ 
+\begin{align*}
+    \neg p &\rightarrow (p \wedge r) \\
+    \text{por PROP: } p &\vee (q \wedge r)\\
+    \text{Dist: } (p\vee q) &\wedge (p\vee r)
+\end{align*}
+
+Luego $(p\vee q) \wedge (p\vee r) \Iff \neg p \rightarrow (p \wedge r)$
+
+\subsubsection{Inciso C}
+
+\begin{align*}
+    \neg(\neg p) &\rightarrow (\neg (\neg p \wedge \neg q)) \\
+    \text{Por DeMorgan: }p &\rightarrow (\neg (\neg (p \vee q))) \\
+    \text{Cancelando: }p &\rightarrow (p \vee q)
+\end{align*}
+
+No son equivalentes pues si $p = True$; $q = False$ entonces $(p \rightarrow (p \vee q)) = True$ pero $q = False$
+
+\subsubsection{Inciso D}
+TODO
+
+\subsubsection{Inciso E}
+
+\begin{align*}
+    p &\vee (\neg p \wedge q)\\
+    \text{Dist: }(p \vee \neg p) &\wedge (p \vee q) \\
+    \text{PROP: }\neg p &\rightarrow q
+\end{align*}
+
+Pues $(p \vee \neg p)$ es siempre True. Luego solo hay que averiguar el valor de verdad de $(p \vee q)$, el cual verifica
+la equivalencia.
+
+\subsubsection{Inciso F}
+
+\begin{align*}
+    \neg (p &\wedge (q \wedge s)) \\
+    \text{Conmutatividad: }\neg (s &\wedge (p \wedge q)) \\
+    \text{DeMorgan: }\neg s &\vee \neg (p\wedge q) \\
+    \neg s &\vee \neg p \vee \neg q \\
+    \text{Asocitividad: }\neg s &\vee (\neg p \vee \neg q) \\
+    \text{PROP: }s &\rightarrow (\neg p \vee \neg q)
+\end{align*}
+
+\subsubsection{Inciso G}
+TODO
+
+\subsection{Ejercicio 8}
+TODO
+
+\subsection{Ejercicio 9}
+\subsubsection{Inciso A}
+
+\begin{enumerate}[label=(\alph*)]
+    \item $f \rightarrow (e \vee m) \wedge \neg (e \wedge m)$
+    \item $\neg f \rightarrow \neg e$
+    \item $(f\wedge e) \rightarrow m$
+\end{enumerate}
+
+\subsubsection{Inciso B}
+TODO
+
+\subsection{Ejercicio 10}
+
+Defino $j = \text{Conocen a Juan; } c = \text{Conocen a Camila; } g = \text{Conocen a Gonzalo}$ \\
+
+\begin{tabular}{c|c|c|c|c|c|c|c}
+    j & c & g & (j $\rightarrow$ c) & (c $\rightarrow$ g) & ((j $\rightarrow$ c)$\vee$(c $\rightarrow$ g)) & (j $\rightarrow$ g) & (((j $\rightarrow$ c)$\vee$(c $\rightarrow$ g))$\rightarrow$(j $\rightarrow$ g)) \\
+    F          & F          & F          & V              & V              & V                          & V              & V                                      \\
+    F          & F          & V          & V              & V              & V                          & V              & V                                      \\
+    F          & V          & F          & V              & F              & F                          & V              & V                                      \\
+    F          & V          & V          & V              & V              & V                          & V              & V                                      \\
+    V          & F          & F          & F              & V              & F                          & F              & V                                      \\
+    V          & F          & V          & F              & V              & F                          & V              & V                                      \\
+    V          & V          & F          & V              & F              & F                          & F              & V                                      \\
+    V          & V          & V          & V              & V              & V                          & V              & V                                     
+\end{tabular}
+
+\subsection{Ejercicio 11}
+Si p = pelea y o = ojo morado. Luego se que $p \rightarrow o$ pero si o es verdadero, puede darse como resultado de p = True/False
+Si por ejemplo digo "cada vez que nieva hace frio", veo que hace frio y determino que está nevando es un pensamiento incorrecto
+porque puede hacer frio sin estar nevando.
+
 
 \end{document}
