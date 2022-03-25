@@ -1,8 +1,21 @@
-\input{Base}
+\input{Algo1Macros}
+\usepackage{caratula}
+\usepackage{enumerate}
+\usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{amsfonts}
 \usepackage{enumitem}
+
+\decimalpoint
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+\setcounter{tocdepth}{2} % profundidad de indice
+\setcounter{section}{0} % nro de section
+\renewcommand{\thesubsubsection}{\thesubsection.\Alph{subsubsection}}
 \graphicspath{ {images/} }
+
+% End latex config
 
 \begin{document}
 
@@ -209,14 +222,13 @@ La proposición más fuerte es $\emph{False}$ y la más débil es $\emph{True}$
 
 \subsubsection{Inciso B}
 
-$\bigstar$ Rdo. Def PROP: $(a \rightarrow b) \Iff (\neg a \vee b)$ 
+$\bigstar$ Rdo. Def implicación: $(a \rightarrow b) \Iff (\neg a \vee b)$ 
 \begin{align*}
     \neg p &\rightarrow (p \wedge r) \\
-    \text{por PROP: } p &\vee (q \wedge r)\\
+    \text{por implicación: } p &\vee (q \wedge r)\\
     \text{Dist: } (p\vee q) &\wedge (p\vee r)
 \end{align*}
-
-Luego $(p\vee q) \wedge (p\vee r) \Iff \neg p \rightarrow (p \wedge r)$
+Son equivalentes.
 
 \subsubsection{Inciso C}
 
@@ -229,14 +241,20 @@ Luego $(p\vee q) \wedge (p\vee r) \Iff \neg p \rightarrow (p \wedge r)$
 No son equivalentes pues si $p = True$; $q = False$ entonces $(p \rightarrow (p \vee q)) = True$ pero $q = False$
 
 \subsubsection{Inciso D}
-TODO
+\begin{align*}
+    ((True \wedge p) \wedge (\neg p \vee False)) &\rightarrow \neg ( \neg p \vee q) \\
+    \text{Simplificando: } (p \wedge \neg p ) &\rightarrow \neg ( \neg p \vee q) \\
+    \text{DeMorgan: } False &\rightarrow (p\wedge \neg q)
+\end{align*}
+
+No son equivalentes.
 
 \subsubsection{Inciso E}
 
 \begin{align*}
     p &\vee (\neg p \wedge q)\\
     \text{Dist: }(p \vee \neg p) &\wedge (p \vee q) \\
-    \text{PROP: }\neg p &\rightarrow q
+    \text{implicación: }\neg p &\rightarrow q
 \end{align*}
 
 Pues $(p \vee \neg p)$ es siempre True. Luego solo hay que averiguar el valor de verdad de $(p \vee q)$, el cual verifica
@@ -250,11 +268,19 @@ la equivalencia.
     \text{DeMorgan: }\neg s &\vee \neg (p\wedge q) \\
     \neg s &\vee \neg p \vee \neg q \\
     \text{Asocitividad: }\neg s &\vee (\neg p \vee \neg q) \\
-    \text{PROP: }s &\rightarrow (\neg p \vee \neg q)
+    \text{implicación: }s &\rightarrow (\neg p \vee \neg q)
 \end{align*}
+Son equivalentes.
 
 \subsubsection{Inciso G}
-TODO
+\begin{align*}
+    p &\rightarrow (p \wedge \neg(q \rightarrow r)) \\
+    \text{Implicación: } \neg p &\vee (q \wedge \neg (q \rightarrow r))\\
+    \text{Distribución: } (\neg p \vee q) &\wedge (\neg p \vee \neg (q \rightarrow r))\\ 
+    \text{Implicación: } (\neg p \vee q) &\wedge (\neg p \vee \neg (\neg q \vee r))\\
+    \text{DeMorgan: } (\neg p \vee q) &\wedge (\neg p \vee (q \wedge \neg r))
+\end{align*}
+Son equivalentes.
 
 \subsection{Ejercicio 8}
 TODO
@@ -292,5 +318,80 @@ Si p = pelea y o = ojo morado. Luego se que $p \rightarrow o$ pero si o es verda
 Si por ejemplo digo "cada vez que nieva hace frio", veo que hace frio y determino que está nevando es un pensamiento incorrecto
 porque puede hacer frio sin estar nevando.
 
+\subsection{Ejercicio 12}
+\begin{enumerate}[label=(\alph*)]
+    \item verdadero
+    \item verdadero
+    \item $\perp$
+    \item falso
+    \item $\perp$
+    \item $\perp$
+    \item $\perp$
+    \item $\perp$
+    \item falso
+\end{enumerate}
+
+\subsection{Ejercicio 13}
+El operador $\yLuego$ se evalúa de forma secuencial, de izquierda a derecha. Su tabla de verdad es:
+
+\includegraphics[height=200px]{cand}
+
+\subsection{Ejercicio 14}
+El operador $\oLuego$ se evalúa de forma secuencial, de izquierda a derecha. Su tabla de verdad es:
+
+\includegraphics[height=200px]{cor}
+
+\subsection{Ejercicio 15}
+El operador $\implicaLuego$ se evalúa de forma secuencial, de izquierda a derecha. Su tabla de verdad es:
+
+\includegraphics[height=200px]{impluego}
+
+\subsection{Ejercicio 16}
+\begin{enumerate}[label=(\alph*)]
+    \item $\perp$
+    \item verdadero
+    \item falso
+    \item verdadero
+    \item verdadero
+    \item verdadero
+    \item falso
+\end{enumerate}
+
+\subsection{Ejercicio 17}
+\begin{enumerate}[label=(\alph*)]
+    \item $p \vee (q \oLuego r)$
+    \item $\neg (p \vee (q \oLuego r))$
+    \item TODO
+    \item $(p \wedge (q \oLuego r))$
+    \item TODO
+    \item TODO
+    \item TODO
+\end{enumerate}
+
+\subsection{Ejercicio 18}
+\begin{enumerate}[label=(\alph*)]
+    \item ligada: $x$; $n = 1, y = z = 1$
+    \item ligada: $x, y$; $n = m = 1, z = 0$
+    \item ligada: $j$; no es posible
+    \item ligada: $j$; $s = True, b = 1, a = 0$
+    \item ligada: $j$; siempre verdadera
+    \item ligada: $j$; el valor de verdad depende de $P(j)$
+    \item ligada: $j$; el valor de verdad depende de $P(j)$
+\end{enumerate}
+
+\subsection{Ejercicio 19}
+\begin{enumerate}
+    \item El pred a expresa "cumple P(x) y Q(x)", no refleja la implicación, donde $P = Falso$ y $Q = Verdadero$ hace verdadero el enunciado.
+    \item El pred c expresa que no hay natural que no cumpla P(x) y cumpla Q(x). Hay que eliminar el $\neg$ dentro del la formula.
+\end{enumerate}
+
+\subsection{Ejercicio 20}
+\begin{enumerate}
+    \item aux suc $(x:\mathbb{Z}):\mathbb{Z} = x + 1$
+    \item aux suma $(x, y:\mathbb{R}):\mathbb{R} = x + y$
+    \item aux producto $(x, y:\mathbb{R}):\mathbb{R} = x*y$
+    \item pred esCuadrado $(x: \mathbb{Z}) \{ (x \geq 0) \wedge \existe{y}{\mathbb{Z}}{x = y*y}\}$
+    \item pred esPrimo
+\end{enumerate}
 
 \end{document}
