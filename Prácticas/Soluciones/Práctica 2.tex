@@ -33,6 +33,7 @@
 \newpage
 
 % Aca empieza lo propio del documento
+
 \section{Práctica 2}
 
 \subsection{Ejercicio 1}
@@ -76,7 +77,133 @@
 \end{enumerate}
 
 \subsection{Ejercicio 4}
-\pred{estáAcotado}{s:\TLista{\ent}}{
-    (\forall i: \ent)(0 \leq i < |s| \implicaLuego 1 \leq s[i] \leq 100)}
+
+% Plantilla de predicado
+% \pred{}{s:\TLista{\ent}}{
+%     (\forall i: \ent)(0 \leq i < |s| \implicaLuego )}
+
+\begin{enumerate}[label=(\alph*)]
+    \item \pred{estáAcotado}{s:\TLista{\ent}}{
+        (\forall i: \ent)(0 \leq i < |s| \implicaLuego 1 \leq s[i] \leq 100)}
+    \item \pred{capicúa}{s:\TLista{\ent}}{
+        (\forall i: \ent)(0 \leq i < |s| \implicaLuego s[i] = s[|k|-i-1])}
+    \item TODO
+    \item \pred{estáOrdenado}{s:\TLista{\ent}}{
+        (\forall i: \ent)(0 \leq i < |s| \implicaLuego s[i] > s[i-1])}
+    \item \pred{todosPrimos}{s:\TLista{\ent}}{
+        (\forall i: \ent)(0 \leq i < |s| \implicaLuego esPrimo(s[i]))}
+    \item \pred{primosEnPosicionesPares}{s:\TLista{\ent}}{
+        (\forall i: \ent)(0 \leq i < |s| \wedge (i \bmod 2 = 0))\implicaLuego esPrimo(s[i])}    
+    \item \pred{todosIguales}{s:\TLista{\ent}}{
+        (\forall i: \ent)(0 \leq i < |s|) \implicaLuego s[i] = s[0])}
+    \item \pred{hayUnoParQueDivideAlResto}{s:\TLista{\ent}}{
+        (\exists i: \ent)(0 \leq i < |s|) \wedge (s[i] \bmod 2 = 0) \wedge ((\forall j: \ent)(0 \leq j < |s| \implicaLuego s[j] \bmod s[i]=0))}
+    \item \pred{hayUnoEnPosicionParQueDivideAlResto}{s:\TLista{\ent}}{
+        (\exists i: \ent)(0 \leq i < |s|) \wedge (i \bmod 2 = 0) \wedge (\forall j: \ent)(0 \leq j < |s| \implicaLuego s[j] \bmod s[i] = 0)}
+    \item \pred{sinRepetidos}{s:\TLista{\ent}}{
+        (\forall i: \ent)(0 \leq i < |s|) \implicaLuego (\forall j: \ent)(0 \leq j < |s| \implicaLuego s[i] \neq s[j])}
+    \item \pred{otroMayorADerecha}{s:\TLista{\ent}}{
+        (\forall i: \ent)(0 \leq i < |s|-1) \implicaLuego (\exists j: \ent)(0 \leq j < |s|-1 \implicaLuego (\exists j:\ent)(i < j < |s|-1) \wedge (s[j]>s[i]))}
+    \item \pred{todosMultiplo}{s:\TLista{\ent}}{
+        (\forall i: \ent)(0 \leq i < |s|) \implicaLuego (\exists j: \ent)(0 \leq j < |s| \wedge s[i] \bmod s[j] = 0)}
+    \item TODO
+    \item \pred{esPermutacionOrdenada}{s, t:\TLista{\ent}}{
+(       \forall i: \ent)((0 \leq i < |s|) \implicaLuego (\exists j: \ent)(0 \leq j < |t| \wedge (s[i] = t[j]))) \wedge estaOrdenada(s)}
+\end{enumerate}
+
+\subsection{Ejercicio 5}
+
+\begin{enumerate}[label=(\alph*)]
+    \item \aux{intercambiarPrimeroPorUltimo}{s:\TLista{\ent}}{\TLista{\ent}}{setAt(s, 0, s[|s|-1-i])}
+    \item \pred{esReverso}{s, t:\TLista{\ent}}{
+        (|s| = |t|)\wedge(\forall i: \ent)(0 \leq i < |s| \implicaLuego s[i] > t[|t|-1-i])}
+    \item No es posible
+    \item \aux{agregarTresCeros}{s:\TLista{\ent}}{\TLista{\ent}}{\conc{s, \langle 0,0,0 \rangle}}
+    \item No es posible
+    \item No es posible
+    \item No es posible
+\end{enumerate}
+
+\subsection{Ejercicio 6}
+\begin{enumerate}[label=(\alph*)]
+    \item \pred{siCumplePTambiénQ}{s:\TLista{\ent}}{
+        (\forall x: \ent)((x \in s \wedge P(x)) \rightarrow Q(x))}
+    \item \pred{siCumplePNoCumpleQ}{s:\TLista{\ent}}{
+        (\forall x: \ent)((x \in s \wedge P(x)) \rightarrow \neg Q(x))}
+    \item \pred{siEstaEnPosicionParYCumplePNoCumpleQ}{s:\TLista{\ent}}{
+        (\forall i: \ent)((0 \leq i < |s|) \wedge (i \bmod 2 = 0) \wedge P(x)) \implicaLuego \neg Q(x))}
+    \item \pred{siCumplePYEstaEnPosicionQueCumpleQEsPar}{s:\TLista{\ent}}{
+        (\forall i: \ent)((0 \leq i < |s|) \wedge P(s[i]) \wedge Q(i)) \implicaLuego (i \bmod 2 = 0))}
+    \item \pred{siHayAlgunoQueNoCumplePNingunoCumpleQ}{s:\TLista{\ent}}{
+        (\exists i: \ent)((0 \leq i < |s|) \wedge \neg P(s[i])) \wedge (\forall j \ent)(0 \leq j < |s|) \rightarrow \neg Q(s[j]))}
+    \item TODO
+\end{enumerate}
+
+\subsection{Ejercicio 7}
+\begin{enumerate}[label=(\alph*)]
+    \item Error de utilizar el cuantificador $\forall$ con $\wedge$, que hace siempre falso el predicado. Para solucionarlo se debe cambiar el $\yLuego$ por $\implicaLuego$
+    \item Error de utlizar el cuantificador $\exists$ con $\rightarrow$. Para solucionarlo hay que cambiar el $\implicaLuego$ por $\yLuego$
+\end{enumerate}
+
+\subsection{Ejercicio 8}
+TODO
+
+\subsection{Ejercicio 9}
+\begin{enumerate}[label=(\alph*)]
+    \item Son equivalentes. Solo cambia el orden de los cuantificadores.
+    \item Idem a
+    \item La primera expresión dice que para cada elemento de la secuencia, existe otro igual a él incluso él mismo. La segunda dice que
+    todos los elementos de la secuencia son iguales. Contraejemplo: $\langle 1,2,1,2 \rangle$ es verdadero en la primera expresión pero falso e la segunda.
+\end{enumerate}
+
+\subsection{Ejercicio 10}
+\begin{enumerate}[label=(\alph*)]
+    \item 8
+    \item $\pi$
+    \item 0
+    \item $\perp$
+    \item $\perp$
+    \item 0
+    \item $\perp$
+    \item 15
+    \item 5
+    \item 0
+\end{enumerate}
+
+\subsection{Ejercicio 11}
+\pred{esPrimo}{x: \ent}{(\sum_{i=2}^{x-1}\IfThenElse{x \bmod i = 0}{1}{0}) = 0}
+
+\subsection{Ejercicio 12}
+\begin{enumerate}[label=(\alph*)]
+    \item $\sum_{i=0}^{|s|-1}\IfThenElse{s[i]=e}{1}{0}$
+    \item \aux{sumaPosicionesImpares}{s: \TLista{\ent}}{\ent}{\sum_{i=0}^{|s|-1}\IfThenElse{i \bmod 2 = 1}{s[i]}{0}}
+    \item $\sum_{i=0}^{|s|-1}\IfThenElse{s[i] > 0}{s[i]}{0}$
+    \item $\sum_{i=0}^{|s|-1}\IfThenElse{s[i] = 0}{0}{\frac{1}{s[i]}}$
+    \item $\sum_{i=0}^{|s|-1}\IfThenElse{(esPrimo(s[i]) \wedge (cantidadDeApariciones(s[i], s)=1)}{1}{0}$
+\end{enumerate}
+
+\subsection{Ejercicio 13}
+\aux{cantidadDeApariciones}{x: \ent, s: \TLista{\ent}}{\ent}{\sum_{i=0}^{|s|-1}\IfThenElse{s[i]=x}{1}{0}}
+
+\pred{esPermutacion}{s,t: \TLista{\ent}}{(\forall x: \ent) (cantidadDeApariciones(x, s) = cantidadDeApariciones(x,t))}
+
+\subsection{Ejercicio 14}
+\begin{enumerate}[label=(\alph*)] 
+    \item \aux{sumaElementosDeSecuencias}{s: \TLista{\TLista{\ent}}}{\ent}{\sum_{i=0}^{|s|-1}\sum_{j=0}^{|t|-1}s[i][j]}
+    \item \aux{cuentaSecuenciasVacias}{s: \TLista{\TLista{\ent}}}{\ent}{\sum_{i=0}^{|s|-1}\IfThenElse{|s[i] = 0|}{1}{0}}
+    \item \aux{sumaUltimoElementoDeSecuencias}{s: \TLista{\TLista{\ent}}}{\ent}{\sum_{i=0}^{|s|-1}\IfThenElse{|s[i]| = 0}{0}{s[i][|s|-1-i]}}
+    \item \pred{todasLasSecuenciasTienenElMismoTamaño}{s: \TLista{\TLista{\ent}}}{(\forall i: \ent)(0\leq i < |s|) \implicaLuego |s[i]| = |s[0]|}
+    \item \aux{sumaDePosicionesImparesEnTodasLasSecuencias}{s: \TLista{\TLista{\ent}}}{\ent}{\sum_{i=0}^{|s|-1}sumaPosicionesImpares(s[i])}
+\end{enumerate}
+
+\subsection{Ejercicio 15}
+\aux{cantidadDeAparicionesDelCharVacio}{s: \TLista{Char}}{\ent}{\sum_{i=0}^{|s|-1}\IfThenElse{s[i] = ""}{1}{0}}
+
+\subsection{Ejercicio 16}
+digitos = $\langle "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" \rangle$
+
+\pred{has}{s: \TLista{Char}, c: Char}{(\exists i: \ent)((0 \leq i < |s|) \wedge (s[i] = c))}
+
+\aux{cantidadDeDigitos}{s: \TLista{Char}}{\ent}{\sum_{i=0}^{|s|-1}\IfThenElse{has(digitos, s[i])}{1}{0}}
 
 \end{document}
