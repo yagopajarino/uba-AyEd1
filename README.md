@@ -7,6 +7,7 @@ Universidad de Buenos Aires
 ## Prácticas
 
 * [Práctica 1](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%201.pdf) | [solución](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Soluciones/Pr%C3%A1ctica%201.pdf)
+* [Práctica 2](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%202.pdf) | [solución](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Soluciones/Pr%C3%A1ctica%202.pdf)
 
 ## Teóricas
 
