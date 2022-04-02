@@ -390,12 +390,13 @@ El operador $\implicaLuego$ se evalúa de forma secuencial, de izquierda a derec
     \item aux suc $(x:\mathbb{Z}):\mathbb{Z} = x + 1$
     \item aux suma $(x, y:\mathbb{R}):\mathbb{R} = x + y$
     \item aux producto $(x, y:\mathbb{R}):\mathbb{R} = x*y$
-    \item pred esCuadrado $(x: \mathbb{Z}) \{ (x \geq 0) \wedge \existe{y}{\mathbb{Z}}{x = y*y}\}$
+    \item pred esCuadrado $(x: \mathbb{Z}) \{ (\exists y: \ent) (x = y*y)\}$
     \item pred esPrimo $(x:\mathbb{Z})\{(x > 1) \wedge (\forall y:\mathbb{Z}) ((1 < y < x) \implicaLuego (x \bmod y \neq 0))\}$
-    \item pred sonCprimos $(x, y:\mathbb{Z}) \{\neg (\exists z: \mathbb{Z})((x \bmod z = 0) \wedge (y \bmod z = 0)) \}$
-    \item pred divisoresGrandes $(x, y:\mathbb{Z}) \{(\forall z: \mathbb{Z}) ((x \bmod z = 0) \wedge (z \neq 1)) \implicaLuego (x > y) \}$
-    \item pred mayorPrimoQueDivide $(x, y:\mathbb{Z}) \{\neg (\exists z:\mathbb{Z})((z > y) \wedge \text{esPrimo(z)} \wedge (x \bmod z = 0) \wedge \text{esPrimo(y)} \wedge ( x\bmod y = 0)) \}$
-    \item pred sonPrimosHermanos $(x, y:\mathbb{Z}) \{ \text{esPrimo(x)} \wedge \text{esPrimo(y)} \wedge ((x-y=2) \vee (y-x=2)) \}$
+    \item pred sonCprimos $(x, y:\mathbb{Z}) \{\neg (\exists z: \mathbb{Z})((z > 1)\wedge(x \bmod z = 0) \wedge (y \bmod z = 0)) \}$
+    \item pred divisoresGrandes $(x, y:\mathbb{Z}) \{(\forall z: \mathbb{Z}) ((z > 1)\wedge(x \bmod z = 0)) \implicaLuego (x > y) \}$
+    \item pred mayorPrimoQueDivide $(x, y:\mathbb{Z}) \{\neg (\exists z:\mathbb{Z})((z > y) \wedge \text{esPrimo(z)} \wedge (x \bmod z = 0)) \wedge \text{esPrimo(y)} \wedge ( x\bmod y = 0) \}$
+    \item pred sonPrimosGEMELOS $(x, y:\mathbb{Z}) \{ \text{esPrimo(x)} \wedge \text{esPrimo(y)} \wedge ((x-y=2) \vee (y-x=2)) \}$
+    \item \pred{sonPrimosHermanos}{x, y:\ent}{esPrimo(x) \wedge esPrimo(y) \wedge ((\forall z:\ent)((x < z < y) \vee (y < z < x)) \implicaLuego \neg esPrimo(z))}
 \end{enumerate}
 
 \end{document}
