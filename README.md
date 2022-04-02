@@ -13,3 +13,7 @@ Universidad de Buenos Aires
 
 * [Teórica 1](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%201.pdf)
 * [Teórica 2](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%202.pdf)
+
+## Contribuciones
+
+Para contribuir con ejercicios que falten o con errores que se encuentren, abrir un [issue](https://github.com/yagopajarino/uba-AyEd1/issues) o hacer un [pull request](https://github.com/yagopajarino/uba-AyEd1/pulls).
