@@ -86,7 +86,7 @@
     \item \pred{estáAcotado}{s:\TLista{\ent}}{
         (\forall i: \ent)(0 \leq i < |s| \implicaLuego 1 \leq s[i] \leq 100)}
     \item \pred{capicúa}{s:\TLista{\ent}}{
-        (\forall i: \ent)(0 \leq i < |s| \implicaLuego s[i] = s[|k|-i-1])}
+        (\forall i: \ent)(0 \leq i < |s| \implicaLuego s[i] = s[|s|-i-1])}
     \item TODO
     \item \pred{estáOrdenado}{s:\TLista{\ent}}{
         (\forall i: \ent)(0 \leq i < |s| \implicaLuego s[i] > s[i-1])}
@@ -106,7 +106,7 @@
         (\forall i: \ent)(0 \leq i < |s|-1) \implicaLuego (\exists j: \ent)(0 \leq j < |s|-1 \implicaLuego (\exists j:\ent)(i < j < |s|-1) \wedge (s[j]>s[i]))}
     \item \pred{todosMultiplo}{s:\TLista{\ent}}{
         (\forall i: \ent)(0 \leq i < |s|) \implicaLuego (\exists j: \ent)(0 \leq j < |s| \wedge s[i] \bmod s[j] = 0)}
-    \item TODO
+    \item TODO: respondido en consultas
     \item \pred{esPermutacionOrdenada}{s, t:\TLista{\ent}}{
 (       \forall i: \ent)((0 \leq i < |s|) \implicaLuego (\exists j: \ent)(0 \leq j < |t| \wedge (s[i] = t[j]))) \wedge estaOrdenada(s)}
 \end{enumerate}
@@ -131,11 +131,11 @@
     \item \pred{siCumplePNoCumpleQ}{s:\TLista{\ent}}{
         (\forall x: \ent)((x \in s \wedge P(x)) \rightarrow \neg Q(x))}
     \item \pred{siEstaEnPosicionParYCumplePNoCumpleQ}{s:\TLista{\ent}}{
-        (\forall i: \ent)((0 \leq i < |s|) \wedge (i \bmod 2 = 0) \wedge P(x)) \implicaLuego \neg Q(x))}
+        (\forall i: \ent)((0 \leq i < |s|) \wedge (i \bmod 2 = 0) \yLuego P(x)) \implicaLuego \neg Q(s[i]))}
     \item \pred{siCumplePYEstaEnPosicionQueCumpleQEsPar}{s:\TLista{\ent}}{
-        (\forall i: \ent)((0 \leq i < |s|) \wedge P(s[i]) \wedge Q(i)) \implicaLuego (i \bmod 2 = 0))}
+        (\forall i: \ent)((0 \leq i < |s|) \yLuego P(s[i]) \yLuego Q(i)) \rightarrow (i \bmod 2 = 0))}
     \item \pred{siHayAlgunoQueNoCumplePNingunoCumpleQ}{s:\TLista{\ent}}{
-        (\exists i: \ent)((0 \leq i < |s|) \wedge \neg P(s[i])) \wedge (\forall j \ent)(0 \leq j < |s|) \rightarrow \neg Q(s[j]))}
+        ((\exists i: \ent)(0 \leq i < |s|) \yLuego \neg P(s[i])) \rightarrow (\forall j \ent)(0 \leq j < |s|) \yLuego \neg Q(s[j]))}
     \item TODO
 \end{enumerate}
 
