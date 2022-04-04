@@ -1,0 +1,221 @@
+\input{Algo1Macros}
+\usepackage{caratula}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+
+\decimalpoint
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+\setcounter{tocdepth}{2} % profundidad de indice
+\setcounter{section}{2} % nro de práctica - 1
+\renewcommand{\thesubsubsection}{\thesubsection.\Alph{subsubsection}}
+\graphicspath{ {images/} }
+
+% End latex config
+
+\begin{document}
+
+\titulo{Práctica 3}
+\fecha{1er cuatrimestre 2022 }
+\materia{Algoritmos y Estructuras de Datos 1}
+\integrante{Yago Pajariño}{546/21}{ypajarino@dc.uba.ar}
+
+%Carátula
+\maketitle
+\newpage
+
+%Indice
+\tableofcontents
+\newpage
+
+% Aca empieza lo propio del documento
+
+\section{Práctica 3}
+
+\subsection{Ejercicio 1}
+
+\begin{enumerate}[label=(\alph*)]
+    \item La postcondición se indefine si $0 \leq result < |l|$ \
+        \begin{proc}{buscar}{\In seq: \TLista{\ent}, \In elem: \float, \Out result: \ent}{}
+        \pre{elem \in \float}
+        \post{0 \leq result < |l| \yLuego l[result] = elem}
+        \end{proc}
+    \item Se indefine con i = 0
+        \begin{proc}{progresiónGeométricaFactor2}{\In l: \TLista{\ent}, \Out result: \bool}{}
+        \pre{\True}
+        \post{result = \True \iff ((\forall i: \ent)(0\leq i < |l|-1 \implicaLuego l[i+1] = 2.l[i]))}
+        \end{proc}
+    \item No se define "x"
+        \begin{proc}{mínimo}{\In l: \TLista{\ent}, \Out result: \ent}{}
+        \pre{\True}
+        \post{(\forall y: \ent)(y \in l \rightarrow y \geq result) \wedge result \in l}
+        \end{proc}
+\end{enumerate}
+
+\subsection{Ejercicio 2}
+\begin{enumerate}[label=(\alph*)]
+    \item $l = \TLista{1,2,3}$ y $suma = 7$
+    \item El problema con los límites es que no determina si un valor intermedio resulta producto de la suma de
+    un subconjunto de elementos de $l$. Ej. $l = \TLista{1,3}$ y $suma = 2$
+    \item TODO
+\end{enumerate}
+
+\subsection{Ejercicio 3}
+\begin{enumerate}[label=(\alph*)]
+    \item \begin{enumerate}
+        \item 0
+        \item $\{-1,1\}$
+        \item $\{-\sqrt{27},\sqrt{27}\}$
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item 3
+        \item $\{0,3\}$
+        \item $\{0,1,2,3,4,5\}$
+    \end{enumerate}
+    \begin{enumerate}
+        \item 3
+        \item 0
+        \item 0
+    \end{enumerate}
+    \item Tienen la misma salida en secuencias sin elementos repetidos.
+\end{enumerate}
+
+\subsection{Ejercicio 4}
+\begin{enumerate}[label=(\alph*)]
+    \item Incorrecta. No se pueden cumplir ambas partes de la conjunción
+    \item Incorrecta. No contempla el caso $a = 0$
+    \item Correcta
+    \item Correcta
+    \item Incorrecta. La implicación junto con la disjuncióin permite que cualquier valor de result haga verdadera la
+    postcondición.
+    \item Correcta    
+\end{enumerate}
+
+\subsection{Ejercicio 5}
+\begin{enumerate}[label=(\alph*)]
+    \item El algoritmo devuelve el valor $9$. Hace verdadera la postcondición.
+    \item En $x \in \{0,1\}$ no cumple la postcondición, en el resto sí.
+    \item Pre$\{ x > 1 \}$
+\end{enumerate}
+
+\subsection{Ejercicio 6}
+\begin{enumerate}[label=(\alph*)]
+    \item $P3 \rightarrow P1 \rightarrow P2$
+    \item $Q1 \rightarrow Q2$ y $Q3 \rightarrow Q2$
+    \item \begin{enumerate}
+        \item $r = x^2 + 1$
+        \item $r = x^2 + 2$
+    \end{enumerate}
+    \item \begin{enumerate}
+        \item Si
+        \item No
+        \item Si
+        \item No
+        \item Si
+        \item No
+        \item No
+        \item No
+    \end{enumerate}
+    \item Se debe cumplir que las precondiciones sean más fuertes y las postcondiciones más débiles.
+\end{enumerate}
+
+\subsection{Ejercicio 7}
+\begin{enumerate}
+    \item $(x\neq 0) \rightarrow (\neg(n \leq 0) \vee (x \neq 0))$ Por la regla de la implicación.
+    \item Sí, la postcondición de P1 es verdadera.
+    \item No pues $P1 \rightarrow P2$ pero no viceversa. P1 podría recebir valores $n>0$, no implementados por $a$.
+\end{enumerate}
+
+\subsection{Ejercicio 8}
+Es cierto que todo algoritmo que cumpla con n-esimo1 también cumple con n-esimo2 pues pre1 $\rightarrow$ pre2 y post1
+$\rightarrow$ post2, pero no al revés.
+
+\subsection{Ejercicio 9}
+\begin{enumerate}[label=(\alph*)]
+    \item   \begin{proc}{esPar}{\In{x: \ent}, \Out{result: \bool}}{}
+            \pre{True}
+            \post{result = \True \iff (x \bmod 2 = 0)}
+    \end{proc}
+    \item   \begin{proc}{esMultiplo}{\In{n: \ent}, \In{m: \ent}, \Out{result: \bool}}{}
+            \pre{True}
+            \post{result = \True \iff ((\exists k: \ent)(n = m.k))}
+    \end{proc}
+    \item   \begin{proc}{inverso}{\In{x: \float}, \Out{result: \float}}{}
+            \pre{x \neq 0}
+            \post{result = \frac{1}{x}}
+    \end{proc}
+    \item   \begin{proc}{numericos}{\In{l: \TLista{Char}}, \Out{result: \TLista{Char}}}{}
+            \pre{True}
+            \post{(\forall i:\ent)(0 \leq i < |result| \implicaLuego result[i] \in digitos)}
+    \end{proc}\\
+    digitos = $\langle '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' \rangle$
+    \item   \begin{proc}{duplicaPosicionesImpares}{\In{l: \TLista{\float}}, \Out{result: \TLista{\float}}}{}
+            \pre{True}
+            \post{(\forall i: \ent)(0 \leq i < |l| \implicaLuego ((i \bmod 2 = 1 \wedge result[i] = 2.l[i]) \vee (result[i] = l[i])))}
+    \end{proc}
+    \item   \begin{proc}{getDivisores}{\In{x: \ent}, \Out{result: \ent}}{}
+            \pre{x \neq 0}
+            \post{(\forall i: \ent)(0 \leq i < |result| \implicaLuego ((x \bmod result[i] = 0) \wedge result[i] > 0 
+            \wedge (\forall j: \ent)(0 \leq j < |result| \implicaLuego result[i] \neq result[j])))}
+    \end{proc}
+\end{enumerate}
+
+\subsection{Ejercicio 10}
+\begin{enumerate}[label=(\alph*)]
+    \item Sí tiene sentido pues tanto 4 como 0 son números enteros. La respuesta es que 4 NO es múltiplo de 0 pues
+    $ \neg \exists k \in \ent : 4 = 0.k$
+    \item Debería ser una entrada válida. En la especificación no lo es.
+    \item Ver 9.b
+    \item La nueva precondición $\{\True\}$ es más debil que $\{ m \neq 0\}$
+\end{enumerate}
+
+\subsection{Ejercicio 11}
+\begin{enumerate}[label=(\alph*)]
+    \item No
+    \item Sí
+    \item Ver 9.e
+    \item La nueva postcondición es más fuerte que la anterior.
+\end{enumerate}
+
+\subsection{Ejercicio 12}
+\begin{proc}{getBinario}{\In x: \ent, \Out result: \TLista{\ent}}{}
+    \pre{x > 0}
+    \post{x = \sum_{i=0}^{|result|-1}result[i]. 2^{|result|-i-1}}    
+\end{proc}
+
+\subsection{Ejercicio 13}
+Sí, en ambos la precondición es demasiado restrictiva. Se está sobreespecificando.
+
+\subsection{Ejercicio 14}
+\begin{enumerate}[label=(\alph*)]
+    \item \begin{proc}{sumaDeFactoresPrimos}{\In x: \ent, \Out res: \ent}{}
+        \pre{x > 0}
+        \post{res = \sum_{i = 2}^{x-1} \IfThenElse{(esPrimo(i) \wedge x \bmod i = 0)}{i}{0}}
+    \end{proc}
+    \item \begin{proc}{esPerfecto}{\In x: \ent, \Out res: \bool}{}
+        \pre{x > 0}
+        \post{res = \True \iff x = (\sum_{i = 1}^{x-1} \IfThenElse{x \bmod i = 0}{i}{0})}
+    \end{proc}
+    \item \pred{sonCoprimos}{n,m: \ent}{1 = \sum_{i=1}^{n+m} \IfThenElse{(n \bmod i = 0 \wedge m \bmod i = 0)}{1}{0}}
+        \begin{proc}{menorCoprimo}{\In n: \ent, \Out m: \ent}{}
+        \pre{n > 0}
+        \post{m > 1 \wedge sonCoprimos(n,m) \wedge (\forall i: \ent) (1 \leq i < m \implicaLuego \neg sonCoprimos(n, i))}
+        \end{proc}
+    \item \begin{proc}{descomposicionEnPrimos}{\In x: \ent, \Out res: \TLista{\ent \times \ent}}{}
+        \pre{x > 0}
+        \post{(x = \sum_{i=0}^{|res|-1}res[i]_0^{res[i]_1})\\ \wedge \\ (\forall i: \ent)(0\leq i < |res| \implicaLuego 
+        (esPrimo(res[i]_0) \wedge res[i]_1\geq 1))\\ \wedge \\(\forall j: \ent)(0 \leq j < |res|-1 \implicaLuego res[i]_0 < res[i+1]_0)}
+        \end{proc}
+    \item TODO
+    \item \aux{cantQueDivide}{x: \ent, l: \TLista{\ent}}{\ent}{\sum_{i = 0}^{|l|-1}\IfThenElse{l[i] \bmod x=0}{1}{0}}
+        \begin{proc}{divideAMasElementos}{\In l: \TLista{\ent}, \Out res: \ent}{}
+        \pre{True}
+        \post{res \in l \wedge (\forall i: \ent)(0 \leq i < |l| \implicaLuego cantQueDivide(l[i], l) < cantQueDivide(res, l))}
+    \end{proc}
+\end{enumerate}
+
+\end{document}
