@@ -13,6 +13,11 @@ Universidad de Buenos Aires
 
 * [Teórica 1](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%201.pdf)
 * [Teórica 2](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%202.pdf)
+* [Teórica 3](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%203.pdf)
+
+## Labos
+
+* [Latex](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Diapos/Labo1.pdf) | [ejercicios](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Labo1_Enunciado.pdf)
 
 ## Contribuciones
 
