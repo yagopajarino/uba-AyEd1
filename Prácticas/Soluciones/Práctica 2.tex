@@ -108,7 +108,9 @@
         (\forall i: \ent)((0 \leq i < |s|-1) \implicaLuego (\exists j: \ent)(0 \leq j < |s| \yLuego s[j]>s[i]))}
     \item \pred{todosMultiplo}{s:\TLista{\ent}}{
         (\forall i: \ent)((0 \leq i < |s|) \implicaLuego (\exists j: \ent)(0 \leq j < |s| \yLuego s[i] \bmod s[j] = 0))}
-    \item TODO: respondido en consultas
+    \item \pred{enTresPartes}{s: \TLista{\ent}}{
+        estaOrdenada(s) \wedge (\forall x: \ent)(0 \leq x \leq 2 \implicaLuego x \in s)
+    }
     \item \pred{esPermutacionOrdenada}{s, t:\TLista{\ent}}{
           (\forall x: \ent)(\#apariciones(x, s) = \#apariciones(x, t) \wedge estaOrdenada(s))}
 \end{enumerate}
