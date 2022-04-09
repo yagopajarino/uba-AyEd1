@@ -87,7 +87,9 @@
         (\forall i: \ent)(0 \leq i < |s| \implicaLuego 1 \leq s[i] \leq 100)}
     \item \pred{capicúa}{s:\TLista{\ent}}{
         (\forall i: \ent)(0 \leq i < |s| \implicaLuego s[i] = s[|s|-i-1])}
-    \item TODO
+    \item \pred{esPrefijo}{s, \TLista{\ent}, t \TLista{\ent}}{
+        (\forall i: \ent)((0 \leq i < |s| \wedge |s| \leq |t|)\implicaLuego s[i] = t[i])
+    }
     \item \pred{estáOrdenado}{s:\TLista{\ent}}{
         (\forall i: \ent)(0 \leq i < |s| \implicaLuego s[i] > s[i-1])}
     \item \pred{todosPrimos}{s:\TLista{\ent}}{
@@ -97,18 +99,18 @@
     \item \pred{todosIguales}{s:\TLista{\ent}}{
         (\forall i: \ent)(0 \leq i < |s|) \implicaLuego s[i] = s[0])}
     \item \pred{hayUnoParQueDivideAlResto}{s:\TLista{\ent}}{
-        (\exists i: \ent)(0 \leq i < |s|) \wedge (s[i] \bmod 2 = 0) \wedge ((\forall j: \ent)(0 \leq j < |s| \implicaLuego s[j] \bmod s[i]=0))}
+        (\exists i: \ent)(0 \leq i < |s|) \yLuego (s[i] \bmod 2 = 0) \wedge ((\forall j: \ent)(0 \leq j < |s| \implicaLuego s[j] \bmod s[i]=0))}
     \item \pred{hayUnoEnPosicionParQueDivideAlResto}{s:\TLista{\ent}}{
-        (\exists i: \ent)(0 \leq i < |s|) \wedge (i \bmod 2 = 0) \wedge (\forall j: \ent)(0 \leq j < |s| \implicaLuego s[j] \bmod s[i] = 0)}
+        (\exists i: \ent)(0 \leq i < |s|) \wedge (i \bmod 2 = 0) \yLuego (\forall j: \ent)(0 \leq j < |s| \implicaLuego s[j] \bmod s[i] = 0)}
     \item \pred{sinRepetidos}{s:\TLista{\ent}}{
-        (\forall i: \ent)(0 \leq i < |s|) \implicaLuego (\forall j: \ent)(0 \leq j < |s| \implicaLuego s[i] \neq s[j])}
+        (\forall i: \ent)((0 \leq i < |s|) \implicaLuego (\forall j: \ent)(0 \leq j < |s| \implicaLuego s[i] \neq s[j]))}
     \item \pred{otroMayorADerecha}{s:\TLista{\ent}}{
-        (\forall i: \ent)(0 \leq i < |s|-1) \implicaLuego (\exists j: \ent)(0 \leq j < |s|-1 \implicaLuego (\exists j:\ent)(i < j < |s|-1) \wedge (s[j]>s[i]))}
+        (\forall i: \ent)((0 \leq i < |s|-1) \implicaLuego (\exists j: \ent)(0 \leq j < |s| \yLuego s[j]>s[i]))}
     \item \pred{todosMultiplo}{s:\TLista{\ent}}{
-        (\forall i: \ent)(0 \leq i < |s|) \implicaLuego (\exists j: \ent)(0 \leq j < |s| \wedge s[i] \bmod s[j] = 0)}
+        (\forall i: \ent)((0 \leq i < |s|) \implicaLuego (\exists j: \ent)(0 \leq j < |s| \yLuego s[i] \bmod s[j] = 0))}
     \item TODO: respondido en consultas
     \item \pred{esPermutacionOrdenada}{s, t:\TLista{\ent}}{
-(       \forall i: \ent)((0 \leq i < |s|) \implicaLuego (\exists j: \ent)(0 \leq j < |t| \wedge (s[i] = t[j]))) \wedge estaOrdenada(s)}
+          (\forall x: \ent)(\#apariciones(x, s) = \#apariciones(x, t) \wedge estaOrdenada(s))}
 \end{enumerate}
 
 \subsection{Ejercicio 5}
