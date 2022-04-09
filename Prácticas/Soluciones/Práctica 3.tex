@@ -105,7 +105,7 @@
 \subsection{Ejercicio 6}
 \begin{enumerate}[label=(\alph*)]
     \item $P3 \rightarrow P1 \rightarrow P2$
-    \item $Q1 \rightarrow Q2$ y $Q3 \rightarrow Q2$
+    \item $Q3 \rightarrow Q1 \rightarrow Q2$
     \item \begin{enumerate}
         \item $r = x^2 + 1$
         \item $r = x^2 + 2$
@@ -217,5 +217,87 @@ Sí, en ambos la precondición es demasiado restrictiva. Se está sobreespecific
         \post{res \in l \wedge (\forall i: \ent)(0 \leq i < |l| \implicaLuego cantQueDivide(l[i], l) < cantQueDivide(res, l))}
     \end{proc}
 \end{enumerate}
+
+\subsection{Ejercicio 15}
+\begin{enumerate}[label=(\alph*)]
+    \item   \begin{proc}{nEsimaAparicion}{\In l: \TLista{\float}, \In e: \float, \Out result: \ent}{}
+            \pre{e \in l \wedge n \geq 1}
+            \post{(l[result] = e) \wedge (n-1 = \sum_{i=0}^{result-1} \IfThenElse{l[i]=e}{1}{0})}
+            \end{proc}
+    \item   \begin{proc}{esSubcadena}{\In s: \TLista{\float}, \In s: \TLista{\float}, \Out result: \bool}{}
+            \pre{\True}
+            \post{|s| \leq |t| \wedge ((\exists i: \ent)(0 \leq i,j < |t| \wedge (\exists j: \ent)( 0 \leq j < i \wedge s == \sub{t, j, i})))}
+            \end{proc}
+    \item   \begin{proc}{estaIncluida}{\In s: \TLista{\ent}, \In t: \TLista{\ent}, \Out res: \bool}{}
+            \pre{\True}
+            \post{ res = True \iff (\forall i: \ent)(0 \leq i < |s| \implicaLuego \#apariciones(s[i], t) \geq \#apariciones(s[i], s))} 
+            \end{proc}
+    \item   \begin{proc}{mezclarOrdenado}{\In s: \TLista{\ent}, \In t: \TLista{\ent}, \Out res: \TLista{\ent}}{}
+            \pre{estaOrdenada(s) \wedge estaOrdenada(t)}
+            \post{|res| = |s| + |t| \\\wedge\\ estaOrdenada(res) \\\wedge\\ (\forall x: \ent)(\#apariciones(x, res) = \#apariciones(x, s) + \#apariciones(x, t))} 
+            \end{proc}
+    \item   \begin{proc}{interseccionSinRepetidos}{\In s: \TLista{\ent}, \In t: \TLista{\ent}, \Out res: \TLista{\ent}}{}
+            \pre{True}
+            \post{estanTodos(s, res) \wedge estanTodos(t, res) \wedge noHayRepetidos(res)} 
+            \end{proc}
+
+            \pred{estanTodos}{l: \TLista{\ent}, r: \TLista{\ent}}{
+                (\forall i : \ent)(0 \leq i < |l| \implicaLuego (\exists j: \ent)r[j] = r[i])
+            }
+
+            \pred{noHayRepetidos}{r: \TLista{\ent}}{
+                (\forall x: \ent)(\#apariciones(x, r) \leq 1)
+            }
+                
+\end{enumerate}
+
+\subsection{Ejercicio 16}
+\begin{enumerate}
+    \item TODO. Respondido en consultas.
+    \item TODO. Respondido en consultas.
+    \item   \begin{proc}{secuenciaConElMayorValor}{\In s: \TLista{\TLista{\ent}}, \Out res: \TLista{\ent}}{}
+            \pre{True}
+            \post{res \in s \wedge (\exists i: \ent)(\forall j: \ent)(0 \leq i < |res| \wedge 0 \leq j < |s| \implicaLuego s[j] \leq res[i])} 
+            \end{proc}
+    \item   \begin{proc}{interseccionMultiple}{\In ls: \TLista{\TLista{\float}}, \Out l: \TLista{\float}}{}
+            \pre{True}
+            \post{noHayRepetidos(l) \wedge (\forall x: \float)(\exists i: \ent)(0\leq i < |ls| \yLuego \#apariciones(x, ls[i] > 0) \implicaLuego x \in l)} 
+            \end{proc}
+    \item   TODO
+\end{enumerate}
+
+\subsection{Ejercicio 17}
+\begin{enumerate}
+    \item No es correcta. No guarda el valor inicial de a,b en la precondición. 
+    \item No es correcta. c es una variable in.
+    \item Es correcta.
+    \item Es correcta.
+\end{enumerate}
+
+\subsection{Ejercicio 18}
+\begin{enumerate}
+    \item No es correcta. No guarda el valor inicial de l.
+    \item No es correcta. No saca el primer elemento a l.
+    \item No es correcta. Si bien sava un elemento a l, cualquier elemento borrado de l cumple con la especificación.
+    \item Es correcta.
+    \item Es correcta.
+\end{enumerate}
+
+\subsection{Ejercicio 19}
+TODO
+
+\subsection{Ejercicio 20}
+Dada una secuencia y un entero i, reemplaza los elementos de la secuencía por el i-ésimo y reemplaza al e-ésimo elemento de la secuencia por el primero.
+
+\subsection{Ejercicio 21}
+\begin{enumerate}
+    \item No especifica asignación en las posiciones impares.
+    \item No especifica la longitud de l.
+    \item l debería ser una variable in en lugar de inout.
+\end{enumerate}
+
+\subsection{Ejercicio 22}
+TODO
+
 
 \end{document}
