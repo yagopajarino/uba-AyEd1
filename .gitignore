@@ -4,3 +4,5 @@ plantillaIllustrator.ait
 latexTemplate/
 Consultas/
 TP/
+Cmake-build-debug
+.idea
