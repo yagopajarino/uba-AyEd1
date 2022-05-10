@@ -20,14 +20,16 @@ Universidad de Buenos Aires
 
 ## Labos
 
-* [Latex](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Diapos/Labo1.pdf) | [ejercicios](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Labo1_Enunciado.pdf)
-* [Labo 1 C++](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/01.C%2B%2B.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%201)
-* [Labo 2 C++](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/02.C%2B%2B.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%202)
-* [Labo 3 C++](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/03.C%2B%2B.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%203)
+* [Latex](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Diapos/Labo1.pdf) | [ejercicios](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo00.pdf)
+* [Labo 1 C++](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo01.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%201)
+* [Labo 2 C++](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo02.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%202)
+* [Labo 3 C++](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo03.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%203)
+* [Labo 4 C++](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo04.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%204)
 
 ## Entregas
 
 * [Entrega 1 C++](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega1/Enunciados) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega1/Resoluciones)
+* [Entrega 2 C++](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega2/Enunciados) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega2/Resoluciones)
 
 ## Contribuciones
 
