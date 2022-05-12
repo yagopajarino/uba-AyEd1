@@ -1,0 +1,380 @@
+\input{Algo1Macros}
+\usepackage{caratula}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+
+\decimalpoint
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+\setcounter{tocdepth}{2} % profundidad de indice
+\setcounter{section}{5} % nro de práctica - 1
+\renewcommand{\thesubsubsection}{\thesubsection.\Alph{subsubsection}}
+\graphicspath{ {images/} }
+
+% End latex config
+
+\begin{document}
+
+\titulo{Práctica 6}
+\fecha{1er cuatrimestre 2022 }
+\materia{Algoritmos y Estructuras de Datos 1}
+\integrante{Yago Pajariño}{546/21}{ypajarino@dc.uba.ar}
+
+%Carátula
+\maketitle
+\newpage
+
+%Indice
+\tableofcontents
+\newpage
+
+% Aca empieza lo propio del documento
+\section{Práctica 6}
+
+\subsection{Ejercicio 1}
+\subsubsection{Pregunta i}
+\includegraphics[width=200px]{6.1.1}
+
+\subsubsection{Pregunta ii}
+\begin{tabular}{|l|l|l|l|l|l|} 
+    \hline
+    Test  & L1 & L2 & L3 & L4 & L5  \\ 
+    \hline
+    test1 & X  & X  &    & X  & X   \\ 
+    \hline
+    test2 & X  & X  & X  &    & X   \\
+    \hline
+\end{tabular}
+
+\subsubsection{Pregunta iii}
+\begin{tabular}{|l|l|l|} 
+    \hline
+    Test  & L2-true & L2-false  \\ 
+    \hline
+    test1 &         & X         \\ 
+    \hline
+    test2 & X       &           \\
+    \hline
+\end{tabular}
+
+\subsubsection{Pregunta iv}
+Es verdadera.
+
+\subsection{Ejercicio 2}
+\subsubsection{Pregunta i}
+\includegraphics[width=200px]{6.2.1}
+
+\subsubsection{Pregunta ii}
+Sí
+
+\subsubsection{Pregunta iii}
+Sí
+
+\subsubsection{Pregunta iv}
+Sí
+
+\subsubsection{Pregunta v}
+No es necesario, ya que el primer test detecta el error, al devolver 1 en lugar de 0 como se esperaba
+
+\subsection{Ejercicio 3}
+\subsubsection{Pregunta i}
+\includegraphics[width=200px]{6.3.1}
+
+\subsubsection{Pregunta ii}
+Se ve que cualquier test corre todas las lineas del programa, por lo que:
+
+test1:
+\begin{itemize}
+    \item Entrada. $ x = 1 $, $ y = 1 $
+    \item Salida esperada $ 2 $
+\end{itemize}
+
+\subsection{Ejercicio 4}
+\subsubsection{Pregunta i}
+\includegraphics[width=200px]{6.3.1}
+
+\subsubsection{Pregunta ii}
+Al igual que en ejercicio anterior, cualquier test ejecuta todas las lineas.
+
+test1:
+\begin{itemize}
+    \item Entrada. $ x = 1 $, $ y = 1 $
+    \item Salida esperada $ 0 $
+\end{itemize}
+
+\subsubsection{Pregunta iii}
+Sí, lo detecta ya que la salida esperada es 0 pero la implementación devuelve 2.
+
+\subsection{Ejercicio 5}
+\subsubsection{Pregunta i}
+\includegraphics[width=300px]{6.5.1}
+
+\subsubsection{Pregunta ii}
+test1:
+\begin{itemize}
+    \item Entrada. $ x = -1 $
+    \item Salida esperada $ -1 $
+\end{itemize}
+
+test2:
+\begin{itemize}
+    \item Entrada. $ x = 1 $
+    \item Salida esperada $ 1 $
+\end{itemize}
+
+El test suite formado por test1, test2 sjecuta todas las lineas del programa.
+
+\subsubsection{Pregunta iii}
+No ejecuta todas las ramas del programa pues faltaría el caso de $x = 0$
+
+\subsection{Ejercicio 6}
+\subsubsection{Pregunta i}
+\includegraphics[width=250px]{6.6.1}
+
+\subsubsection{Pregunta ii}
+test1:
+\begin{itemize}
+    \item Entrada. $ x = -1 $
+    \item Salida esperada $ -1 $
+\end{itemize}
+
+\subsubsection{Pregunta iii}
+test1:
+\begin{itemize}
+    \item Entrada. $ x = -1 $
+    \item Salida esperada $ -1 $
+\end{itemize}
+
+test2:
+\begin{itemize}
+    \item Entrada. $ x = 1 $
+    \item Salida esperada $ 1 $
+\end{itemize}
+
+\subsubsection{Pregunta iv}
+test1:
+\begin{itemize}
+    \item Entrada. $ x = -1 $
+    \item Salida esperada $ -1 $
+\end{itemize}
+
+\subsection{Ejercicio 7}
+\subsubsection{Pregunta i}
+\includegraphics[width=250px]{6.7.1}
+
+\subsubsection{Pregunta ii}
+test1 "negativo":
+\begin{itemize}
+    \item Entrada. $ x = -1 $
+    \item Salida esperada. $ 1 $
+\end{itemize}
+
+test1 "positivo":
+\begin{itemize}
+    \item Entrada. $ x = 1 $
+    \item Salida esperada. $ 1 $
+\end{itemize}
+
+El test suite (test1, test2) cubre todas las líneas y branches del programa.
+
+\subsection{Ejercicio 8}
+\subsubsection{Pregunta i}
+\includegraphics[width=250px]{6.8.1}
+
+\subsubsection{Pregunta ii}
+test1:
+\begin{itemize}
+    \item Entrada. $ x = 5 $
+    \item Salida esperada. $ 50 $
+\end{itemize}
+
+\subsubsection{Pregunta iii}
+Sí
+
+\subsection{Ejercicio 9}
+\subsubsection{Pregunta i}
+\includegraphics[width=300px]{6.9.1}
+
+\subsubsection{Pregunta ii}
+test1 'y positivo':
+\begin{itemize}
+    \item Entrada. $ x = 1, y = 5 $
+    \item Salida esperada. $ 6 $
+\end{itemize}
+
+test2 'y negativo':
+\begin{itemize}
+    \item Entrada. $ x = 1, y = -5 $
+    \item Salida esperada. $ -4 $
+\end{itemize}
+
+\subsubsection{Pregunta iii}
+EL test suite de la pregunta ii cubre todas las branches.
+
+\subsection{Ejercicio 10}
+\subsubsection{Pregunta i}
+\includegraphics[width=250px]{6.10.1}
+
+\subsubsection{Pregunta ii}
+test1:
+\begin{itemize}
+    \item Entrada. $ x = 12, y = 8 $
+    \item Salida esperada. $ 4 $
+\end{itemize}
+
+\subsection{Ejercicio 11}
+\subsubsection{Pregunta i}
+\includegraphics[width=250px]{6.11.1}
+
+\subsubsection{Pregunta ii}
+test1:
+\begin{itemize}
+    \item Entrada. $ a = -10, b = 2, c = 3 $
+    \item Salida esperada. $ 4 $
+\end{itemize}
+
+test2:
+\begin{itemize}
+    \item Entrada. $ a = 1, b = 2, c = 4 $
+    \item Salida esperada. $ 4 $
+\end{itemize}
+
+test3:
+\begin{itemize}
+    \item Entrada. $ a = 2, b = 2, c = 2 $
+    \item Salida esperada. $ 1 $
+\end{itemize}
+
+test4:
+\begin{itemize}
+    \item Entrada. $ a = 2, b = 2, c = 3 $
+    \item Salida esperada. $ 2 $
+\end{itemize}
+
+test5:
+\begin{itemize}
+    \item Entrada. $ a = 2, b = 3, c = 4 $
+    \item Salida esperada. $ 3 $
+\end{itemize}
+
+El test suite (test1, test2, test3, test4, test5) ejecuta todas las lineas y todos los branches del programa.
+
+\subsection{Ejercicio 12}
+\subsubsection{Pregunta i}
+\includegraphics[width=250px]{6.12.1}
+
+\subsubsection{Pregunta ii}
+La rama true del primer if no puede ser cubierta por ningún caso de test pues la función fabs devuelve siempre un valor $ \geq 0 $
+
+\subsubsection{Pregunta iii}
+test1: 
+\begin{itemize}
+    \item Entrada. $ x = 2, y = -5 $
+    \item Salida esperada. $ 10 $
+\end{itemize}
+
+test2: 
+\begin{itemize}
+    \item Entrada. $ x = 2, y = 0 $
+    \item Salida esperada. $ 0 $
+\end{itemize}
+
+El segundo test lo agrego para ejecutar el falso de no ingreso al ciclo, aunque esa rama se cumpla siempre que se ingresa al ciclo.
+
+\subsection{Ejercicio 13}
+\subsubsection{Pregunta i}
+\includegraphics[width=200px]{6.13.1}
+
+\subsubsection{Pregunta ii}
+test1:
+\begin{itemize}
+    \item Entrada. $ s = \langle 1,2,3,4 \rangle $
+    \item Salida esperada. $ \langle 0,0,0,0 \rangle $
+\end{itemize}
+Esto cubre todas las líneas del programa.
+
+CONSULTAR que pasa con la lista vacía.
+
+\subsubsection{Pregunta iii}
+Si la lista vacía sigue la decisión del false del for, hay que agregarla como test.
+
+\subsection{Ejercicio 14}
+\subsubsection{Pregunta i}
+\includegraphics[width=300px]{6.14.1}
+
+\subsubsection{Pregunta ii}
+test1:
+\begin{itemize}
+    \item Entrada. $ s = \langle 1,2,3,4 \rangle; e = 3 $
+    \item Salida esperada true
+\end{itemize}
+
+test2:
+\begin{itemize}
+    \item Entrada. $ s = \langle 1,2,3,4 \rangle; e = 5 $
+    \item Salida esperada false
+\end{itemize}
+Cubre todas las lineas.
+
+\subsubsection{Pregunta iii}
+IDEM ejercicio anterior, agregar test de linea vacía si el no entrar al ciclo también es una decisión.
+
+\subsection{Ejercicio 15}
+\subsubsection{Pregunta i}
+cantidadDePrimos
+
+\includegraphics[width=300px]{6.15.1}
+
+esPrimo
+
+\includegraphics[width=300px]{6.15.2}
+
+\subsubsection{Pregunta ii}
+test1:
+\begin{itemize}
+    \item Entrada. $ n = 3 $
+    \item Salida esperada $ 2 $
+\end{itemize}
+
+test2:
+\begin{itemize}
+    \item Entrada. $ n = 4 $
+    \item Salida esperada $ 2 $
+\end{itemize}
+Cubre todas las líneas
+
+\subsubsection{Pregunta iii}
+En el video de la práctica agrega el test $ n = 0 $ que hace falsa la guarda del for.
+
+\subsection{Ejercicio 16}
+\subsubsection{Pregunta i}
+esSubsecuencia
+
+\includegraphics[width=300px]{6.16.1}
+
+subsecuencia
+
+\includegraphics[width=250px]{6.16.2}
+
+iguales
+
+\includegraphics[width=300px]{6.16.3}
+
+\subsubsection{Pregunta ii}
+test1:
+\begin{itemize}
+    \item Entrada. $ s = \langle 1,2,3,4 \rangle; r = \langle 2,3 \rangle $
+    \item Salida esperada true
+\end{itemize}
+
+test2:
+\begin{itemize}
+    \item Entrada. $ s = \langle 1,2 \rangle; r = \langle 1,2,3 \rangle $
+    \item Salida esperada false
+\end{itemize}
+
+\end{document}
