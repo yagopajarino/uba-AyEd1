@@ -47,4 +47,114 @@
     \item $ i \neq |A| $
 \end{enumerate}
 
+\subsection{Ejercicio 2}
+
+Rdo. \textbf{Axioma 1 asignación}: $ wp(x:= E, Q) \equiv def(E) \yLuego Q^x_E$
+
+\begin{enumerate}
+    \item $ \{ def(a+1) \yLuego a+1 \geq 0 \} \equiv \{ a \geq -1\} $
+    \item $ \{ def(\frac{a}{b}) \yLuego \frac{a}{b} \geq 0 \} \equiv \{ b \neq 0 \yLuego \frac{a}{b} \geq 0 \} $
+    \item $ \{ def(A[i]) \yLuego A[i] \geq 0 \} \equiv 0 \leq \{ i < |A| \yLuego A[i] \geq 0 \} $
+    \item $ \{ def(b \cdot b) \yLuego b \cdot b \geq 0 \} \equiv True $
+    \item $ \{ def(b+1) \yLuego a+1 \geq 0 \} \equiv \{ True \yLuego a \geq -1 \} \equiv \{ a \geq -1 \} $
+\end{enumerate}
+
+\subsection{Ejercicio 3}
+
+Rdo. \textbf{Axioma 3 secuenciación}: $ wp(S1; S2, Q) \equiv wp(S1, wp(S2, Q)) $
+
+\subsubsection{Pregunta i}
+\begin{align*}
+    wp(a := a+1; b = \frac{a}{2}, b \geq 0) &\equiv wp(a := a+1, wp(b:= \frac{a}{2}, b \geq 0)) \\ 
+    &\equiv wp(a := a+1, def(\frac{a}{2}) \yLuego \frac{a}{2} \geq 0) \\ 
+    &\equiv wp(a := a+1, a \geq 0) \\ 
+    &\equiv \{ def(a+1) \yLuego a+1 \geq 0 \} \\ 
+    &\equiv \{ a \geq -1 \} \\ 
+\end{align*}
+
+\subsubsection{Pregunta ii}
+\begin{align*}
+    wp(a := A[i] + 1; b := a.a, b \neq 2) &\equiv wp(a := A[i] + 1, wp(b := a.a, b \neq 2)) \\
+    &\equiv wp(a := A[i] + 1, \{ def(a.a) \yLuego a.a \neq 2 \}) \\
+    &\equiv wp(a := A[i] + 1, \{ a \neq \pm \sqrt[]{2} \}) \\
+    &\equiv \{ def(A[i] + 1) \yLuego A[i] + 1 \neq \sqrt[]{2} \} \\
+    &\equiv \{ 0 \leq i < |A| \yLuego A[i] \neq \sqrt[]{2} - 1 \} \\
+\end{align*}
+
+\subsubsection{Pregunta iii}
+\begin{align*}
+    wp(a := A[i] + 1; a := b.b, a \geq 0) &\equiv wp(a := A[i] + 1, wp(a := b.b, a \geq 0)) \\
+    &\equiv wp(a := A[i] + 1, \{ def(b.b) \yLuego b.b \geq 0 \}) \\
+    &\equiv wp(a := A[i] + 1, \{ True \}) \\
+    &\equiv \{ def(A[i] + 1) \yLuego True \} \\
+    &\equiv \{ 0 \leq i < |A| \} \\
+\end{align*}
+
+\subsubsection{Pregunta iv}
+\begin{align*}
+    wp(a := a-b; b := a+b, ( a\geq 0 \wedge b \geq 0 )) &\equiv wp(a := a-b, wp(b := a+b, ( a\geq 0 \wedge b \geq 0 ))) \\
+    &\equiv wp(a := a-b, \{ a \geq 0 \wedge a+b \geq 0 \}) \\
+    &\equiv \{ a-b \geq 0 \wedge a-b+b \geq 0 \}  \\
+    &\equiv \{ a \geq b \wedge a \geq 0 \}  \\
+    &\equiv \{ 0 \leq b \leq a \}  \\
+\end{align*}
+
+\subsection{Ejercicio 4}
+
+Rdo. \textbf{asignación a una secuencia}: $ b[i] := E \equiv b := setAt(b, i, E) $
+
+Sea $ Q \equiv (\forall j: \ent)(0 \leq j < |A| \implicaLuego A[j] \geq 0) $
+
+En todo lo que sigue considero que $ |A| \equiv |setAt(A, i, E)| $
+\subsubsection*{Pregunta i}
+\begin{align*}
+    wp( A[i] := 0, Q ) \equiv &wp(setAt(A,i,0), Q) \\
+    \equiv &\{ 0 \leq i < |A| \yLuego (\forall j: \ent)(0 \leq j < |A| \implicaLuego setAt(A,i,0)[j] \geq 0 ) \} \\
+    \equiv &\{ 0 \leq i < |A| \yLuego (\forall j: \ent)(((0 \leq j < |A| \wedge j = i) \implicaLuego setAt(A,i,0)[i] \geq 0) \wedge \\
+    &\qquad \qquad \qquad \qquad \qquad \quad ((0 \leq j < |A| \wedge j \neq i) \implicaLuego setAt(A,i,0)[j] \geq 0 )) \} \\
+    \equiv &\{ 0 \leq i < |A| \yLuego (\forall j: \ent)(((0 \leq j < |A| \wedge j = i) \implicaLuego 0 \geq 0) \wedge \\
+    &\qquad \qquad \qquad \qquad \qquad \quad ((0 \leq j < |A| \wedge j \neq i) \implicaLuego A[j] \geq 0 )) \} \\
+    \equiv &\{ 0 \leq i < |A| \yLuego (\forall j: \ent)((0 \leq j < |A| \wedge j \neq i) \implicaLuego A[j] \geq 0) \} \\
+\end{align*}
+
+\subsubsection*{Pregunta ii}
+\begin{align*}
+    wp(A[i+2] := 0;Q) &\equiv wp(A := setAt(A, i+2, 0), Q) \\    
+    &\equiv \{ 0 \leq i+2 < |A| \yLuego (\forall j: \ent)(0 \leq j < |A| \implicaLuego setAt(A, i+2, 0)[j] \geq 0) \} \\
+    &\equiv \{ 0 \leq i+2 < |A| \yLuego (\forall j: \ent)((0 \leq j < |A| \wedge j = i+2) \implicaLuego setAt(A, j, 0)[j] \geq 0 \wedge \\
+    &\qquad \qquad \qquad \qquad \qquad \qquad \quad \; \; ((0 \leq j < |A| \wedge j \neq i+2) \implicaLuego setAt(A, i+2, 0)[j] \geq 0)) \} \\
+    &\equiv \{ 0 \leq i+2 < |A| \yLuego (\forall j: \ent)((0 \leq j < |A| \wedge j = i+2) \implicaLuego 0 \geq 0 \wedge \\
+    &\qquad \qquad \qquad \qquad \qquad \qquad \quad \; \; ((0 \leq j < |A| \wedge j \neq i+2) \implicaLuego A[j] \geq 0)) \} \\
+    &\equiv \{ 0 \leq i+2 < |A| \yLuego (\forall j: \ent)((0 \leq j < |A| \wedge j \neq i+2) \implicaLuego A[j] \geq 0) \} \\
+\end{align*}
+
+\subsubsection*{Pregunta iii}
+\begin{align*}
+    wp(A[i+2] := -1,Q) &\equiv wp(A := setAt(A, i+2, -1),Q) \\
+    &\equiv \{ 0 \leq i < |A| \yLuego (\forall j: \ent)(0 \leq j < |A| \implicaLuego setAt(A, i+2, -1)[j] \geq 0) \} \\
+    &\equiv \{ 0 \leq i < |A| \yLuego (\forall j: \ent)(((0 \leq j < |A| \wedge j = i+2) \implicaLuego -1 \geq 0) \wedge \\
+    &\qquad \qquad \qquad \qquad \qquad \qquad \: ((0 \leq j < |A| \wedge j \neq i+2) \implicaLuego A[j] \geq 0))\} \\
+    &\equiv \{ 0 \leq i < |A| \yLuego False \} \\
+    &\equiv \{ False \} \\
+\end{align*}
+
+\subsubsection*{Pregunta iv}
+\begin{align*}
+    wp(A[i] := 2 \cdot A[i],Q) &\equiv wp(A:= setAt(A, i, 2\cdot A[i]),Q) \\
+    &\equiv \{ 0 \leq i < |A| \yLuego (\forall j: \ent)(0 \leq j < |A| \implicaLuego setAt(A, i, 2\cdot A[i])[j] \geq 0) \} \\
+    &\equiv \{ 0 \leq i < |A| \yLuego (\forall j: \ent)(((0 \leq j < |A| \wedge j = i) \implicaLuego setAt(A, j, 2\cdot A[j])[j] \geq 0) \wedge \\
+    &\qquad \qquad \qquad \qquad \qquad \qquad \: ((0 \leq j < |A| \wedge j \neq i) \implicaLuego A[j] \geq 0)) \} \\
+    &\equiv \{ 0 \leq i < |A| \yLuego (\forall j: \ent)(((0 \leq j < |A| \wedge j = i) \implicaLuego A[j] \geq 0) \wedge \\
+    &\qquad \qquad \qquad \qquad \qquad \qquad \: ((0 \leq j < |A| \wedge j \neq i) \implicaLuego A[j] \geq 0)) \} \\
+    &\equiv \{ 0 \leq i < |A| \yLuego (\forall j: \ent)(0 \leq j < |A| \wedge \implicaLuego A[j] \geq 0) \}
+\end{align*}
+
+\subsubsection*{Pregunta v}
+\begin{align*}
+    wp(A[i] := A[i-1],Q) &\equiv wp(setAt(A, i, A[i-1]),Q) \\
+    &\equiv \{ (0 \leq i < |A| \wedge 0 \leq i-1 < |A|) \yLuego (\forall j: \ent)(0 \leq j < |A| \implicaLuego setAt(A, i, A[i-1])[j] \geq 0) \} \\
+    &\equiv \{ 1 \leq i < |A| \yLuego (\forall j: \ent)(((0 \leq j < |A| \wedge j = i) \implicaLuego A[j-1] \geq 0) \wedge \\ 
+    &\qquad \qquad \qquad \qquad \qquad \qquad \: ((0 \leq j < |A| \wedge j \neq i) \implicaLuego A[j] \geq 0)) \} \\
+    &\equiv \{ 1 \leq i < |A| \yLuego (\forall j: \ent)((0 \leq j < |A| \wedge j \neq i) \implicaLuego A[j] \geq 0) \}
+\end{align*}
 \end{document}
