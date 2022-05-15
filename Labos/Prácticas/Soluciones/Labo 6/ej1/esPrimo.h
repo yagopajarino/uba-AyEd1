@@ -1,0 +1,1 @@
+bool esPrimo(int n);
