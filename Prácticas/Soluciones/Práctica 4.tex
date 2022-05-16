@@ -153,8 +153,177 @@ En todo lo que sigue considero que $ |A| \equiv |setAt(A, i, E)| $
 \begin{align*}
     wp(A[i] := A[i-1],Q) &\equiv wp(setAt(A, i, A[i-1]),Q) \\
     &\equiv \{ (0 \leq i < |A| \wedge 0 \leq i-1 < |A|) \yLuego (\forall j: \ent)(0 \leq j < |A| \implicaLuego setAt(A, i, A[i-1])[j] \geq 0) \} \\
-    &\equiv \{ 1 \leq i < |A| \yLuego (\forall j: \ent)(((0 \leq j < |A| \wedge j = i) \implicaLuego A[j-1] \geq 0) \wedge \\ 
+    &\equiv \{ 1 \leq i < |A| \yLuego (\forall j: \ent)(((0 \leq j < |A| \wedge j = i) \implicaLuego A[j-1] \geq 0) \wedge \\
     &\qquad \qquad \qquad \qquad \qquad \qquad \: ((0 \leq j < |A| \wedge j \neq i) \implicaLuego A[j] \geq 0)) \} \\
     &\equiv \{ 1 \leq i < |A| \yLuego (\forall j: \ent)((0 \leq j < |A| \wedge j \neq i) \implicaLuego A[j] \geq 0) \}
 \end{align*}
+
+\subsection{Ejercicio 5}
+\subsubsection{Pregunta i}
+\begin{align*}
+    wp(S, Q) &\equiv wp(i := i+1, (\forall j: \ent)(0 \leq j < |A| \implicaLuego A[j] \neq 0)) \\
+    &\equiv \{ def(i+1) \yLuego (\forall j: \ent)(0 \leq j < |A| \implicaLuego A[j] \neq 0) \} \\
+    &\equiv \{ (\forall j: \ent)(0 \leq j < |A| \implicaLuego A[j] \neq 0) \} \\
+\end{align*}
+
+\subsubsection{Pregunta ii}
+\begin{align*}
+    wp(S, Q) &\equiv wp(A[0] := 4, (\forall j: \ent)(0 \leq j < |A| \implicaLuego A[j] \neq 0)) \\
+    &\equiv wp(A := setAt(A, 0, 4), (\forall j: \ent)(0 \leq j < |A| \implicaLuego A[j] \neq 0)) \\
+    &\equiv \{ def(setAt(A, 0, 4)) \yLuego (\forall j: \ent)(0 \leq j < |A| \implicaLuego setAt(A, 0, 4)[j] \neq 0) \} \\
+    &\equiv \{ |A| > 0 \yLuego (\forall j: \ent)(((0 \leq j < |A| \wedge j = 0) \implicaLuego setAt(A, 0, 4)[0] \neq 0) \wedge \\
+    &\qquad \qquad \qquad \qquad \qquad \; \: ((0 \leq j < |A| \wedge j \neq 0) \implicaLuego setAt(A, 0, 4)[j] \neq 0)) \} \\
+    &\equiv \{ |A| > 0 \yLuego (\forall j: \ent)(((0 \leq j < |A| \wedge j = 0) \implicaLuego 4 \neq 0) \wedge \\
+    &\qquad \qquad \qquad \qquad \qquad \; \: ((0 \leq j < |A| \wedge j \neq 0) \implicaLuego A[j] \neq 0)) \} \\
+    &\equiv \{ |A| > 0 \yLuego (\forall j: \ent)((0 \leq j < |A| \wedge j \neq 0) \implicaLuego A[j] \neq 0) \} \\
+    &\equiv \{ |A| > 0 \yLuego (\forall j: \ent)(1 \leq j < |A| \implicaLuego A[j] \neq 0) \} \\
+\end{align*}
+
+\subsubsection{Pregunta iii}
+\begin{align*}
+    wp(S, Q) &\equiv wp(A[2] := 4, (\forall j: \ent)(0 \leq j < |A| \implicaLuego A[j] \neq 0)) \\
+    &\equiv wp(A := setAt(A, 2, 4), (\forall j: \ent)(0 \leq j < |A| \implicaLuego A[j] \neq 0)) \\
+    &\equiv \{ def(setAt(A, 2, 4)) \yLuego (\forall j: \ent)(0 \leq j < |A| \implicaLuego setAt(A, 2, 4)[j] \neq 0) \} \\
+    &\equiv \{ |A| > 2 \yLuego (\forall j: \ent)(((0 \leq j < |A| \wedge j = 2) \implicaLuego setAt(A, 2, 4)[2] \neq 0) \wedge \\ 
+    &\qquad \qquad \qquad \qquad \qquad \; \: ((0 \leq j < |A| \wedge j \neq 2) \implicaLuego setAt(A, 2, 4)[j] \neq 0)) \} \\
+    &\equiv \{ |A| > 2 \yLuego (\forall j: \ent)(((0 \leq j < |A| \wedge j = 2) \implicaLuego 4 \neq 0) \wedge \\ 
+    &\qquad \qquad \qquad \qquad \qquad \; \: ((0 \leq j < |A| \wedge j \neq 2) \implicaLuego A[j] \neq 0)) \} \\
+    &\equiv \{ |A| > 2 \yLuego (\forall j: \ent)((0 \leq j < |A| \wedge j \neq 2) \implicaLuego A[j] \neq 0) \} \\
+\end{align*}
+
+\subsubsection{Pregunta iv}
+\begin{align*}
+    wp(S, Q) &\equiv wp(A[i] := A[i+1] - 1, (\forall j: \ent)(0 < j < |A| \implicaLuego A[j] \geq A[j-1])) \\
+    &\equiv wp(A := setAt(A, i, A[i+1] - 1), (\forall j: \ent)(0 < j < |A| \implicaLuego A[j] \geq A[j-1])) \\
+    &\equiv \{ def(setAt(A, i, A[i+1] - 1)) \yLuego (\forall j: \ent)(0 < j < |A| \implicaLuego \\ 
+    &\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad setAt(A, i, A[i+1] - 1)[j] \geq setAt(A, i, A[i+1] - 1)[j-1]) \} \\
+    &\equiv \{ (0 \leq i < |A| \wedge 0 \leq i+1 < |A|) \yLuego (\forall j: \ent)(0 < j < |A| \implicaLuego \\ 
+    &\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad setAt(A, i, A[i+1] - 1)[j] \geq setAt(A, i, A[i+1] - 1)[j-1]) \} \\
+    &\equiv \{ 0 \leq i < |A|-1 \yLuego (\forall j: \ent)(((0 < j < |A| \wedge j = i) \implicaLuego A[j+1]-1 \geq A[j-1]) \wedge \\
+    &\qquad \qquad \qquad \qquad \qquad \qquad \quad \; \; \; ((0 < j < |A| \wedge j \neq i) \implicaLuego A[j] \geq A[j-1])) \} \\
+\end{align*}
+
+\subsubsection{Pregunta v}
+\begin{align*}
+    wp(S, Q) &\equiv wp(A[i] := A[i+1] - 1, (\forall j: \ent)(0 < j < |A| \implicaLuego A[j] \leq A[j-1])) \\
+    &\equiv wp(A := setAt(A, i, A[i+1] - 1), (\forall j: \ent)(0 < j < |A| \implicaLuego A[j] \leq A[j-1])) \\
+    &\equiv \{ def(setAt(A, i, A[i+1] - 1)) \yLuego (\forall j: \ent)(0 < j < |A| \implicaLuego \\
+    &\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad setAt(A, i, A[i+1] - 1)[j] \leq setAt(A, i, A[i+1] - 1)[j-1]) \} \\
+    &\equiv \{ (0 \leq i < |A| \wedge 0 \leq i+1 < |A|) \yLuego (\forall j: \ent)(0 < j < |A| \implicaLuego \\
+    &\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad setAt(A, i, A[i+1] - 1)[j] \leq setAt(A, i, A[i+1] - 1)[j-1]) \} \\
+    &\equiv \{ 0 \leq i < |A|-1 \yLuego (\forall j: \ent)(((0 < j < |A| \wedge j = i) \implicaLuego A[j+1] - 1 \leq A[j-1]) \wedge \\
+    &\qquad \qquad \qquad \qquad \qquad \qquad \quad \; \; \; ((0 < j < |A| \wedge j-1 = i) \implicaLuego A[j] \leq A[j] - 1) \wedge \\ 
+    &\qquad \qquad \qquad \qquad \qquad \qquad \quad \; \; \; ((0 < j < |A| \wedge j \neq i \wedge j-1 \neq i) \implicaLuego A[j] \leq A[j-1])) \} \\
+    &\equiv \{ 0 \leq i < |A|-1 \yLuego (\forall j: \ent)(((0 < j < |A| \wedge j = i) \implicaLuego A[j+1] - 1 \leq A[j-1]) \wedge \\
+    &\qquad \qquad \qquad \qquad \qquad \qquad \quad \; \; \; False \wedge \\ 
+    &\qquad \qquad \qquad \qquad \qquad \qquad \quad \; \; \; ((0 < j < |A| \wedge j \neq i \wedge j-1 \neq i) \implicaLuego A[j] \leq A[j-1])) \} \\
+    &\equiv \{ 0 \leq i < |A|-1 \yLuego False \} \\
+    &\equiv \{ False \} \\
+\end{align*}
+
+\subsection{Ejercicio 6}
+\subsubsection{Pregunta i}
+$ S \equiv a := a+2 $
+
+Luego busco probar la tripla $ \{ Pre \}S\{ Post \} \iff Pre \implies wp(S; Post) $
+\begin{align*}
+    wp(a := a+2, a = a_0 + 2) &\equiv \{ def(a+2) \yLuego a + 2 = a_0 + 2 \} \\
+    &\equiv \{ a = a_0 \} \\
+\end{align*}
+
+Por lo tanto tengo que probar que $ Pre \implies \{ a = a_0 \} $
+\begin{align*}
+    Pre \implies \{ a = a_0 \} &\iff \{ a = a_0 \wedge a \geq 0 \} \implies \{ a = a_0 \}
+\end{align*}
+Que es verdadero, pues $ a = a_0 \implies a = a_0 $
+
+\subsubsection{Pregunta ii}
+$ S \equiv b := a + 3 $
+
+Luego busco probar la tripla $ \{ Pre \}S\{ Post \} \iff Pre \implies wp(S; Post) $
+\begin{align*}
+    wp(b := a + 3, b = a + 3) &\equiv \{ def(a+3) \yLuego a + 3 = a+3 \} \\
+    &\equiv \{ True \yLuego True \} \\
+    &\equiv \{ True \} \\
+\end{align*}
+Y dado que $ \{ a \neq 0 \} \implies \{ True \} $ el programa es correcto.
+
+\subsubsection{Pregunta iii}
+$ S \equiv c := a+b $
+
+Luego busco probar la tripla $ \{ Pre \}S\{ Post \} \iff Pre \implies wp(S; Post) $
+\begin{align*}
+    wp(c := a + b, c = a + b) &\equiv \{ def(a+b) \yLuego a + b = a+b \} \\
+    &\equiv \{ True \yLuego True \} \\
+    &\equiv \{ True \} \\
+\end{align*}
+Y dado que $ \{ True \} \implies \{ True \} $ el programa es correcto.
+
+\subsubsection{Pregunta iv}
+$ S \equiv result := 2.a[i] $
+
+Luego busco probar la tripla $ \{ Pre \}S\{ Post \} \iff Pre \implies wp(S; Post) $
+\begin{align*}
+    wp(result := 2.a[i], result = 2.a[i]) &\equiv \{ def(2.a[i]) \yLuego 2.a[i] = 2.a[i] \} \\
+    &\equiv \{ 0 \leq i < |a| \yLuego True \} \\
+    &\equiv \{ 0 \leq i < |a| \} \\
+\end{align*}
+Y dado que $ \{ 0 \leq i < |a| \} \implies \{ 0 \leq i < |a| \} $ el programa es correcto.
+
+\subsubsection{Pregunta v}
+$ S \equiv result := a[i] + a[i+1] $
+
+Luego busco probar la tripla $ \{ Pre \}S\{ Post \} \iff Pre \implies wp(S; Post) $
+\begin{align*}
+    wp(result := a[i] + a[i+1],result = a[i] + a[i+1]) &\equiv \{ def(a[i] + a[i+1]) \yLuego a[i] + a[i+1] = a[i] + a[i+1] \} \\
+    &\equiv \{ (0 \leq i < |a| \wedge 0 \leq i+1 < |a|) \yLuego True \} \\
+    &\equiv \{ 0 \leq i < |a| \wedge 0 \leq i+1 < |a| \} \\
+    &\equiv \{ 0 \leq i < |a|-1 \} \\
+\end{align*}
+Luego $ Pre \equiv \{ 0 \leq i \wedge i+1 < |A| \} \implies \{ 0 \leq i < |a|-1 \} $ por lo tanto el programa es correcto.
+
+\subsection{Ejercicio 7}
+
+Rdo. \textbf{axióma 4 condicional}: $ wp(\IfThenElse{B}{S_1}{S_2}, Q) \equiv def(B) \yLuego ((B \wedge wp(S_1, Q)) \vee (\neg B \wedge wp(S_2, Q))) $
+
+\subsubsection{Pregunta i}
+Defino,
+\begin{itemize}
+    \item $ B \equiv a < 0 $
+    \item $ S_1 \equiv b := a $
+    \item $ S_2 \equiv b := -a $
+    \item $ Q \equiv b = -|a| $
+\end{itemize}
+Luego,
+\begin{align*}
+    wp(S, Q) &\equiv wp(\IfThenElse{B}{S_1}{S_2}, Q) \\
+    &\equiv \{ def(B) \yLuego ((B \wedge wp(S_1, Q)) \vee (\neg B \wedge wp(S_2, Q))) \} \\
+    &\equiv \{ def(a < 0) \yLuego (((a<0) \wedge wp(b := a, b = -|a|)) \vee (a \geq 0 \wedge wp( b := -a, b = -|a|))) \} \\
+    &\equiv \{ ((a<0) \wedge def(a) \yLuego a = -|a|) \vee (a \geq 0 \wedge def(-a) \yLuego -a = -|a|) \} \\
+    &\equiv \{ ((a<0) \wedge a = -|a|) \vee (a \geq 0 \wedge -a = -|a|) \} \\
+    &\equiv \{ (a<0 \implies a = -|a|) \wedge (a \geq 0 \implies -a = -|a|) \} \\
+    &\equiv \{ True \wedge True \} \\
+    &\equiv \{ True \} \\
+\end{align*}
+
+\subsubsection{Pregunta ii}
+Defino,
+\begin{itemize}
+    \item $ B \equiv a < 0 $
+    \item $ S_1 \equiv b := a $
+    \item $ S_2 \equiv b := -a $
+    \item $ Q \equiv b = |a| $
+\end{itemize}
+Luego,
+\begin{align*}
+    wp(S, Q) &\equiv wp(\IfThenElse{B}{S_1}{S_2}, Q) \\
+    &\equiv \{ def(B) \yLuego ((B \wedge wp(S_1, Q)) \vee (\neg B \wedge wp(S_2, Q))) \} \\
+    &\equiv \{ def(a < 0) \yLuego (((a<0) \wedge wp(b := a, b = |a|)) \vee (a \geq 0 \wedge wp( b := -a, b = |a|))) \} \\
+    &\equiv \{ ((a<0) \wedge def(a) \yLuego a = |a|) \vee (a \geq 0 \wedge def(-a) \yLuego -a = |a|) \} \\
+    &\equiv \{ (a<0 \wedge a = |a|) \vee (a \geq 0 \wedge -a = |a|) \} \\
+    &\equiv \{ False \vee (a = 0) \} \\
+    &\equiv \{ a = 0 \} \\
+\end{align*}
+
+
 \end{document}
