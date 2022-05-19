@@ -36,7 +36,7 @@ Actualizaciones
 * [Labo 3 C++](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo03.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%203)
 * [Labo 4 C++](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo04.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%204)
 * [Labo 5 C++](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo05.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%205)
-
+* [Labo 6: testing](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo06.pdf)  | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%206)
 
 ## Entregas
 
