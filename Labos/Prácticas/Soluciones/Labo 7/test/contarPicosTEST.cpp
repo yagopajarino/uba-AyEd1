@@ -18,5 +18,5 @@ TEST(contarPicos, testDos) {
             vec[2*i][2*j] = 1;
         }
     }
-    EXPECT_EQ(contarPicos(vec), 8);
+    EXPECT_EQ(contarPicos(vec), 200);
 }

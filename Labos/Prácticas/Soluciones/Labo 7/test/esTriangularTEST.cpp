@@ -51,6 +51,6 @@ TEST(esTriangular, dosXdos) {
             {0,2},
     };
     bool res = esTriangular(m);
-    EXPECT_FALSE(res);
+    EXPECT_TRUE(res);
 }
 

@@ -46,7 +46,7 @@ TEST(diferenciaDiagonales, test5){
             {-1,2},
             {6,-6}
     };
-    EXPECT_EQ(diferenciaDiagonales(m), 8);
+    EXPECT_EQ(diferenciaDiagonales(m), 15);
 }
 
 TEST(diferenciaDiagonales, test6){

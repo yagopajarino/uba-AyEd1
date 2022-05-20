@@ -18,7 +18,7 @@ set(SOURCE_FILES main.cpp
         test/multiplicarTEST.cpp
         test/promediarTEST.cpp
         test/contarPicosTEST.cpp
-        test/esTriangular.cpp
+        test/esTriangularTEST.cpp
         test/hayAmenazaTEST.cpp
         test/diferenciaDiagonalesTEST.cpp
         )
