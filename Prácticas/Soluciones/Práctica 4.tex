@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{amsfonts}
 \usepackage{enumitem}
+\usepackage{listings} % Permite usar código
 
 \decimalpoint
 \hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue}
@@ -324,6 +325,140 @@ Luego,
     &\equiv \{ False \vee (a = 0) \} \\
     &\equiv \{ a = 0 \} \\
 \end{align*}
+
+\subsubsection{Pregunta iii}
+Defino,
+\begin{itemize}
+    \item $ B \equiv i > 0 $
+    \item $ S_1 \equiv s[i] := 0 $
+    \item $ S_2 \equiv s[0] := 0 $
+    \item $ Q \equiv (\forall j \in \mathbb{Z})(0 \leq j < |s| \implicaLuego s[j] \geq 0) $
+\end{itemize}
+Luego,
+\begin{align*}
+    wp(S, Q) &\equiv wp(\IfThenElse{B}{S_1}{S_2}, Q) \\
+    &\equiv \{ def(B) \yLuego ((B \wedge wp(S_1, Q)) \vee (\neg B \wedge wp(S_2, Q))) \} \\
+    &\equiv \{ def(i > 0) \yLuego ((i > 0 \wedge wp(s[i] := 0, Q)) \vee (\neg (i > 0) \wedge wp(s[0] := 0, Q))) \} \\
+    &\equiv \{(i > 0 \wedge wp(s:=setAt(s, i, 0), Q)) \vee (\neg (i > 0) \wedge wp(s:=setAt(s, 0, 0), Q)) \} \\
+    &\equiv \{(i > 0 \wedge def(setAt(s, i, 0)) \yLuego (\forall j \in \mathbb{Z})(0 \leq j < |s| \implicaLuego setAt(s, i, 0)[j] \geq 0)) \vee \\
+    &\quad \; \; \: (i \leq 0 \wedge def(setAt(s, 0, 0)) \yLuego (\forall j \in \mathbb{Z})(0 \leq j < |s| \implicaLuego setAt(s, 0, 0)[j] \geq 0)) \} \\
+    &\equiv \{(i > 0 \wedge 0 \leq i < |s| \yLuego (\forall j \in \mathbb{Z})(0 \leq j < |s| \implicaLuego setAt(s, i, 0)[j] \geq 0)) \vee \\
+    &\quad \; \; \: (i \leq 0 \wedge |s| > 0 \yLuego (\forall j \in \mathbb{Z})(0 \leq j < |s| \implicaLuego setAt(s, 0, 0)[j] \geq 0)) \} \\
+    &\equiv \{(i > 0 \wedge 0 \leq i < |s| \yLuego (\forall j \in \mathbb{Z})((0 \leq j < |s| \wedge j \neq i) \implicaLuego s[j] \geq 0)) \vee \\
+    &\quad \; \; \: (i \leq 0 \wedge |s| > 0 \yLuego (\forall j \in \mathbb{Z})((0 \leq j < |s| \wedge j \neq 0) \implicaLuego s[j] \geq 0)) \} \\
+\end{align*}
+
+\subsubsection{Pregunta iv}
+Defino,
+\begin{itemize}
+    \item $ B \equiv i > 1 $
+    \item $ S_1 \equiv s[i] := s[i-1] $
+    \item $ S_2 \equiv s[i] := 0 $
+    \item $ Q \equiv (\forall j \in \mathbb{Z})(1 \leq j < |s| \implicaLuego s[j] < s[j-1]) $
+\end{itemize}
+Luego,
+\begin{align*}
+    wp(S, Q) &\equiv wp(\IfThenElse{B}{S_1}{S_2}, Q) \\
+    &\equiv \{ def(B) \yLuego ((B \wedge wp(S_1, Q)) \vee (\neg B \wedge wp(S_2, Q))) \} \\
+    &\equiv \{ def(i > 1) \yLuego ((i > 1 \wedge wp(s[i] := s[i-1], Q)) \vee (\neg (i > 1) \wedge wp(s[i] := 0, Q))) \} \\
+    &\equiv \{ (i > 1 \wedge wp(s:= setAt(s, i, s[i-1]), Q)) \vee \\
+    &\quad \; \; \; (i \leq 1 \wedge wp(s:=setAt(s,i,0), Q)) \} \\
+    &\equiv \{ (i > 1 \wedge def(setAt(s, i, s[i-1])) \yLuego (\forall j \in \mathbb{Z})(1 \leq j < |s| \implicaLuego setAt(s, i, s[i-1])[j] < setAt(s, i, s[i-1])[j-1])) \vee \\
+    &\quad \; \; \; (i \leq 1 \wedge  def(setAt(s,i,0)) \yLuego (\forall j \in \mathbb{Z})(1 \leq j < |s| \implicaLuego setAt(s,i,0)[j] < setAt(s,i,0)[j-1])) \} \\
+    &\equiv \{ (i > 1 \wedge 0 \leq i < |s| \wedge 0 \leq i-1 < |s| \yLuego (\forall j \in \mathbb{Z})(1 \leq j < |s| \implicaLuego setAt(s, i, s[i-1])[j] < setAt(s, i, s[i-1])[j-1])) \vee \\
+    &\quad \; \; \; (i \leq 1 \wedge 0 \leq i < |s| \yLuego (\forall j \in \mathbb{Z})(1 \leq j < |s| \implicaLuego setAt(s,i,0)[j] < setAt(s,i,0)[j-1])) \} \\
+\end{align*}
+
+\subsubsection{Pregunta v}
+\begin{itemize}
+    \item $ B \equiv s[i] < 0 $
+    \item $ S_1 \equiv s[i] := -s[i] $
+    \item $ S_2 \equiv skip $
+    \item $ Q \equiv (0 \leq i < |s| \implicaLuego s[i] \geq 0) $
+\end{itemize}
+Luego,
+\begin{align*}
+    wp(S, Q) &\equiv wp(\IfThenElse{B}{S_1}{S_2}, Q) \\
+    &\equiv \{ def(B) \yLuego ((B \wedge wp(S_1, Q)) \vee (\neg B \wedge wp(S_2, Q))) \} \\
+    &\equiv \{ def(s[i] < 0) \yLuego ((s[i] < 0 \wedge wp(s[i] := -s[i], Q)) \vee (\neg (s[i] < 0) \wedge wp(skip, Q))) \} \\
+    &\equiv \{ 0 \leq i < |s| \yLuego ((s[i] < 0 \wedge wp(s:=setAt(s, i, -s[i]), Q)) \vee \\
+    &\qquad \qquad \qquad \qquad \; \; (s[i] \geq 0 \wedge wp(skip, Q))) \} \\
+    &\equiv \{ 0 \leq i < |s| \yLuego ((s[i] < 0 \wedge def(setAt(s, i, -s[i])) \yLuego (0 \leq i < |s| \implicaLuego setAt(s, i, -s[i])[i] \geq 0)) \vee \\
+    &\qquad \qquad \qquad \qquad \; \; (s[i] \geq 0 \wedge (0 \leq i < |s| \implicaLuego s[i] \geq 0))) \} \\
+    &\equiv \{ 0 \leq i < |s| \yLuego ((s[i] < 0 \wedge 0 \leq i < |s| \yLuego (0 \leq i < |s| \implicaLuego setAt(s, i, -s[i])[i] \geq 0)) \vee \\
+    &\qquad \qquad \qquad \qquad \; \; (s[i] \geq 0 \wedge (0 \leq i < |s| \implicaLuego s[i] \geq 0))) \} \\
+    &\equiv \{ 0 \leq i < |s| \yLuego ((s[i] < 0 \wedge (s[i] \leq 0)) \vee \\
+    &\qquad \qquad \qquad \qquad \; \; (s[i] \geq 0)) \} \\
+    &\equiv \{ 0 \leq i < |s| \} \\
+\end{align*}
+
+\subsubsection{Pregunta vi}
+\begin{itemize}
+    \item $ B \equiv s[i] > 0 $
+    \item $ S_1 \equiv s[i] := -s[i] $
+    \item $ S_2 \equiv skip $
+    \item $ Q \equiv (\forall j \in \mathbb{Z})(0 \leq j < |s| \implicaLuego s[j] \geq 0) $
+\end{itemize}
+Luego,
+\begin{align*}
+    wp(S, Q) &\equiv wp(\IfThenElse{B}{S_1}{S_2}, Q) \\
+    &\equiv \{ def(B) \yLuego ((B \wedge wp(S_1, Q)) \vee (\neg B \wedge wp(S_2, Q))) \} \\
+    &\equiv \{ def(s[i] > 0) \yLuego ((s[i] > 0 \wedge wp(s[i] := -s[i], Q)) \vee (\neg (s[i] > 0) \wedge wp(skip, Q))) \} \\
+    &\equiv \{ 0 \leq i < |s| \yLuego ((s[i] > 0 \wedge wp(s:= setAt(s, i, -s[i]), Q)) \vee \\
+    &\qquad \qquad \qquad \qquad \; \: (s[i] \leq 0 \wedge wp(skip, Q))) \} \\
+    &\equiv \{ 0 \leq i < |s| \yLuego ((s[i] > 0 \wedge def(setAt(s, i, -s[i])) \yLuego (\forall j \in \mathbb{Z})(0 \leq j < |s| \implicaLuego setAt(s, i, -s[i])[j] \geq 0)) \vee \\
+    &\qquad \qquad \qquad \qquad \; \: (s[i] \leq 0 \wedge (\forall j \in \mathbb{Z})(0 \leq j < |s| \implicaLuego s[j] \geq 0))) \} \\
+    &\equiv \{ 0 \leq i < |s| \yLuego ((s[i] > 0 \wedge 0 \leq i < |s| \yLuego (\forall j \in \mathbb{Z})(0 \leq j < |s| \implicaLuego setAt(s, i, -s[i])[j] \geq 0)) \vee \\
+    &\qquad \qquad \qquad \qquad \; \: (s[i] \leq 0 \wedge (\forall j \in \mathbb{Z})(0 \leq j < |s| \implicaLuego s[j] \geq 0))) \} \\
+    &\equiv \{ 0 \leq i < |s| \yLuego ((s[i] > 0 \wedge False) \vee \\
+    &\qquad \qquad \qquad \qquad \; \: (s[i] < 0 \wedge False) \vee \\
+    &\qquad \qquad \qquad \qquad \; \: (s[i] = 0 \wedge (\forall j \in \mathbb{Z})(0 \leq j < |s| \implicaLuego s[j] \geq 0))) \} \\
+    &\equiv \{ 0 \leq i < |s| \yLuego (s[i] = 0 \wedge (\forall j \in \mathbb{Z})(0 \leq j < |s| \implicaLuego s[j] \geq 0)) \} \\
+\end{align*}
+
+\subsection{Ejercicio 8}
+
+\subsubsection{Pregunta i}
+\textbf{Programa}
+
+\begin{lstlisting}[language = C++]
+    a := a + s[i]
+\end{lstlisting}
+
+\textbf{Corrección}
+\begin{align*}
+    wp(a := a + s[i], Post) &\equiv def(a + s[i]) \yLuego a + s[i] = \sum_{j=0}^{i}s[j] \\
+    &\equiv 0 \leq i < |s| \yLuego a = (\sum_{j=0}^{i}s[j]) - s[i] \\
+    &\equiv 0 \leq i < |s| \yLuego a = \sum_{j=0}^{i-1}s[j] \\
+\end{align*}
+
+Por lo tanto, para verificar que el programa es correcto, tengo que probar que $ Pre \implies wp(a := a + s[i], Post) $
+
+Luego alcanza probar que $ \{ 0 \leq i < |s| \yLuego a = \sum_{j=0}^{i-1}s[j] \} \implies \{ 0 \leq i < |s| \yLuego a = \sum_{j=0}^{i-1}s[j] \} $
+
+Que es verdadero, por lo tanto el programa es correcto.
+
+\subsubsection{Pregunta ii}
+
+\textbf{Programa}
+
+\begin{lstlisting}[language = C++]
+    a := a - s[0]
+\end{lstlisting}
+
+\textbf{Corrección}
+\begin{align*}
+    wp(a := a - s[0], Post) &\equiv def(a - s[0]) \yLuego a - s[0] = \sum_{j = 1}^{i}s[j] \\
+    &\equiv |s| > 0 \yLuego a = \sum_{j = 0}^{i}s[j]
+\end{align*}
+
+Por lo tanto, para verificar que el programa es correcto, tengo que probar que,
+\begin{align*}
+    Pre &\implies wp(a := a - s[0], Post) \\
+    0 \leq i < |s| \yLuego a = \sum_{j = 0}^{i}s[j] &\implies |s| > 0 \yLuego a = \sum_{j = 0}^{i}s[j]
+\end{align*}
+
+Que es verdadero, por lo tanto el programa es correcto.
 
 
 \end{document}
