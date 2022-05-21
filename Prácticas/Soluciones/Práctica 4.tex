@@ -460,5 +460,84 @@ Por lo tanto, para verificar que el programa es correcto, tengo que probar que,
 
 Que es verdadero, por lo tanto el programa es correcto.
 
+\subsubsection{Pregunta iii}
 
+\textbf{Programa S}
+
+\begin{lstlisting}[language = C++]
+    res := false;
+    if (s[i] >= 0) then {
+        res := true;
+    } else {
+        skip
+    } 
+\end{lstlisting}
+
+\textbf{Corrección}
+\begin{align*}
+    wp(S, Post) &\equiv wp(res := false, wp(\IfThenElse{s[i] >= 0}{res := true}{skip}, Post)) \\
+    &\equiv wp(res := false, def(s[i] >= 0) \yLuego (s[i] >= 0 \wedge (true = true \iff (\forall j: \ent)(0\leq j \leq i \implicaLuego s[j] > 0))) \vee \\
+    &\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \quad(s[i] < 0 \wedge (res = true \iff (\forall j: \ent)(0\leq j \leq i \implicaLuego s[j] > 0)))) \\
+    &\equiv def(false) \yLuego 0 \leq i < |s| \yLuego (s[i] \geq 0 \wedge (true = true \iff (\forall j: \ent)(0\leq j \leq i \implicaLuego s[j] > 0))) \vee \\
+    &\qquad \qquad \qquad \qquad \qquad \qquad \qquad (s[i] < 0 \wedge (false = true \iff (\forall j: \ent)(0\leq j \leq i \implicaLuego s[j] > 0))) \\
+    &\equiv 0 \leq i < |s| \yLuego (s[i] \geq 0 \wedge (true = true \iff (\forall j: \ent)(0\leq j \leq i \implicaLuego s[j] > 0))) \vee \\
+    &\qquad \qquad \qquad \quad \; \;(s[i] < 0 \wedge (false = true \iff (\forall j: \ent)(0\leq j \leq i \implicaLuego s[j] > 0))) \\
+\end{align*}
+
+Por lo tanto alcanza probar que:
+\begin{itemize}
+    \item $ s[i] \geq 0 \implies (\forall j: \ent)(0\leq j \leq i \implicaLuego s[j] > 0) $
+    \item $ s[i] < 0 \implies \neg(\forall j: \ent)(0\leq j \leq i \implicaLuego s[j] > 0) $
+\end{itemize}
+
+Pero el primero es válido ya que en para $ 0 \leq j < i $ vale por Pre y se que $ s[i] \geq 0 $
+
+El segundo por lo mismo se que $ s[i] < 0 $ y por lo tanto el para todo es falso.
+
+Luego $ Pre \implies wp(S, Post) $ y por lo tanto el programa es correcto.
+
+\subsubsection{Pregunta iv}
+
+\textbf{Programa S}
+
+\begin{lstlisting}[language = C++]
+    if (s[i] != 0) then {
+        a := a + 1
+    } else {
+        skip
+    } 
+\end{lstlisting}
+
+\textbf{Corrección}
+\begin{align*}
+    wp(S, Post) &\equiv wp(\IfThenElse{s[i] \neq 0}{a := a + 1}{skip}, Post) \\
+    &\equiv def(s[i] != 0) \yLuego ((s[i] \neq 0 \wedge def(a+1) \yLuego a+1 = \sum_{j=0}^{i}\IfThenElse{s[j]\neq 0}{1}{0} ) \vee \\ 
+    &\qquad \qquad \qquad \qquad \quad \; \; (s[i] = 0 \wedge a = \sum_{j=0}^{i}\IfThenElse{s[j]\neq 0}{1}{0}  )) \\
+    &\equiv 0 \leq i < |s| \yLuego ((s[i] \neq 0 \wedge a+1 = \sum_{j=0}^{i}\IfThenElse{s[j]\neq 0}{1}{0} ) \vee \\ 
+    &\qquad \qquad \qquad \qquad (s[i] = 0 \wedge a = \sum_{j=0}^{i}\IfThenElse{s[j]\neq 0}{1}{0}  )) \\
+\end{align*}
+
+Por lo tanto alcanza probar que $ Pre \implies $ cada rama del if.
+
+En ambas se ve que la sumatoria vale desde $ j = 0 $ hasta $ i-1 $ por $ Pre $, queda ver que pasa con el valor de $ s[i] $
+
+En la rama true del $if$, $ s[i] \neq 0 \implies $ la sumatoria hasta $i$ es igual a $ a+1 $
+
+En la rama false, $ s[i] = 0 \implies $ la sumatoria hasta $i$ es igual a $a$
+
+Luego $ Pre \implies wp(S, Post) $ y por lo tanto el programa es correcto.
+
+\subsubsection{Pregunta v}
+
+\textbf{Programa S}
+
+\begin{lstlisting}[language = C++]
+    if (s[0] != 0) then {
+        a := a - 1
+    } else {
+        skip
+    } 
+\end{lstlisting}
+
+Queda probar la correctitud usando wp, similar al del ejercicio anterior.
 \end{document}
