@@ -1,0 +1,201 @@
+\input{Algo1Macros}
+\usepackage{caratula}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{listings} % Permite usar código
+
+\decimalpoint
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+\setcounter{tocdepth}{2} % profundidad de indice
+\setcounter{section}{4} % nro de práctica - 1
+\renewcommand{\thesubsubsection}{\thesubsection.\Alph{subsubsection}}
+\graphicspath{ {images/} }
+
+% End latex config
+
+\begin{document}
+
+\titulo{Práctica 5}
+\fecha{1er cuatrimestre 2022 }
+\materia{Algoritmos y Estructuras de Datos 1}
+\integrante{Yago Pajariño}{546/21}{ypajarino@dc.uba.ar}
+
+%Carátula
+\maketitle
+\newpage
+
+%Indice
+\tableofcontents
+\newpage
+
+% Aca empieza lo propio del documento
+
+\section{Práctica 5}
+
+\subsection{Ejercicio 1}
+
+\subsubsection{Pregunta i}
+
+\begin{itemize}
+    \item $ P_c \equiv \{ i = 0; result = 0 \} $
+    \item $ Q_c \equiv \{ result = \sum_{j = 0}^{|s| - 1}s[j] \} $
+\end{itemize}
+
+\subsubsection{Pregunta ii}
+
+Falla $ \{ I \wedge B \}S\{ I \} $ en la última iteración, pues al finalizar esta, $i = |s|$
+
+\subsubsection{Pregunta iii}
+
+Falla $ P_c \implies I $ pues si el límite de la sumatoria es i, la misma se inicializa con $result = s[0]$.
+
+\subsubsection{Pregunta iv}
+
+Falla $ \{ I \wedge B \}S\{ I \} $ en la última iteración, pues se indefine $ s[i] $ en la última iteración.
+
+\subsubsection{Pregunta v}
+
+Defino y/o recuerdo,
+\begin{itemize}
+    \item $ P_c \equiv \{ i = 0 \wedge result = 0 \} $
+    \item $ Q_c \equiv \{ result = \sum_{j = 0}^{|s| - 1}s[j] \} $
+    \item $ I \equiv \{ 0 \leq i \leq |s| \yLuego result = \sum_{j = 0}^{i - 1}s[j] \} $
+    \item $ B \equiv \{ i < |s| \} $
+\end{itemize}
+
+Para probar la correctitud del ciclo tengo que demostrar que valen:
+\begin{enumerate}[label=(\alph*)]
+    \item $ P_c \implies I $
+    \item $ \{ I \wedge B \} S \{ I \} $
+    \item $ (I \wedge \neg B) \implies Q_c $
+\end{enumerate}
+
+\textbf{Demostración (a)}
+
+$ i = 0 \implies 0 \leq i \leq |s| $ pues $ |s| \geq 0 $
+
+$ i = 0 \implies result = \sum_{j = 0}^{0 - 1}s[j] = 0 = result $
+
+\textbf{Demostración (c)}
+
+\begin{align*}
+    (I \wedge \neg B) &\equiv \{ 0 \leq i \leq |s| \yLuego result = \sum_{j = 0}^{i - 1}s[j] \wedge i \geq |s| \} \\
+    &\equiv \{ i = |s| \yLuego result = \sum_{j = 0}^{i - 1}s[j] \} \\
+\end{align*}
+
+Pero $ i = |s| \implies result = \sum_{j = 0}^{|s| - 1}s[j] \equiv Q_c $
+
+\textbf{Demostración (b)}
+
+$ \{ I \wedge B \} S \{ I \} \iff (I \wedge B) \implies wp(S, I) $
+
+\begin{align*}
+    wp(S, I) &\equiv wp(result := result + s[i], wp(i := i+1, I)) \\
+    &\equiv wp(result := result + s[i], def(i+1) \yLuego (0 \leq i + 1 \leq |s| \yLuego result = \sum_{j = 0}^{i + 1 - 1}s[j])) \\
+    &\equiv wp(result := result + s[i], (0 \leq i + 1 \leq |s| \yLuego result = \sum_{j = 0}^{i + 1 - 1}s[j])) \\
+    &\equiv def(result + s[i]) \yLuego (0 \leq i + 1 \leq |s| \yLuego result + s[i] = \sum_{j = 0}^{i + 1 - 1}s[j]) \\
+    &\equiv 0 \leq i < |s| \yLuego (0 \leq i + 1 \leq |s| \yLuego result + s[i] = \sum_{j = 0}^{i + 1 - 1}s[j]) \\
+    &\equiv 0 \leq i < |s| \yLuego result + s[i] = \sum_{j = 0}^{i}s[j] \\
+\end{align*}
+
+Por $(I \wedge B)$ se que $ 0 \leq i < |s| $ y $ result + s[i] = \sum_{j = 0}^{i}s[j] \iff result = \sum_{j = 0}^{i-1}s[j] $
+
+Luego el ciclo es parcialmente correcto.
+
+\subsubsection{Pregunta vi}
+
+Defino $ fv = |s| - i $
+
+Para probar que el ciclo termina tengo que demostrar que,
+\begin{enumerate}[label=(\alph*)]
+    \item $ \{ I \wedge B \wedge fv = v_0 \} S \{ fv < v_0 \} $
+    \item $ (I \wedge fv \leq 0) \implies \neg B $
+\end{enumerate}
+
+\textbf{Demostración (b)}
+
+$ fv \leq 0 \iff |s| - i \leq 0 \iff |s| \leq i \equiv i \geq |s| $
+
+$ \neg B \equiv \neg (i < |s|) \equiv i \geq |s| $
+
+\textbf{Demostración (a)}
+
+Tengo que probar que $ (I \wedge B \wedge fv = v_0) \implies wp(S, fv < v_0) $
+
+\begin{align*}
+    wp(S, fv < v_0) &\equiv wp(result := result + s[i], wp(i := i+1, fv < v_0)) \\
+    &\equiv wp(result := result + s[i], def(i+1) \yLuego |s| - (i+1) < v_0) \\
+    &\equiv wp(result := result + s[i], |s| - (i+1) < v_0) \\
+    &\equiv \{def(result + s[i]) \yLuego |s| - (i+1) < v_0 \} \\
+    &\equiv \{ 0 \leq i < |s| \yLuego |s| - (i+1) < v_0 \} \\
+\end{align*}
+
+Pero,
+\begin{itemize}
+    \item $ 0 \leq i < |s| $ vale por $ ( I \wedge B ) $
+    \item $ |s| - i - 1 < v_0 \iff |s| - i - 1 < |s| - i \iff -1 < 0 $
+\end{itemize}
+
+Por lo tanto el ciclo es correcto y finaliza.
+
+\subsection{Ejercicio 2}
+
+Defino,
+\begin{itemize}
+    \item $ P_c \equiv \{ result = 0 \wedge i = 0 \} $
+    \item $ Q_c \equiv \{ i = n+n \bmod 2 \wedge result = \sum_{j = 0}^{n-1}\IfThenElse{j \bmod 2 = 0}{j}{0} \} $
+    \item $ I \equiv 0 \leq i \leq n+1 \wedge i \bmod 2 = 0\wedge result = \sum_{j = 0}^{i-1}\IfThenElse{j \bmod 2 = 0}{j}{0} $
+    \item $ B \equiv i < n $
+\end{itemize}
+
+Para probar la correctitud del ciclo tengo que demostrar que valen:
+\begin{enumerate}[label=(\alph*)]
+    \item $ P_c \implies I $
+    \item $ \{ I \wedge B \} S \{ I \} $
+    \item $ (I \wedge \neg B) \implies Q_c $
+\end{enumerate}
+
+\textbf{Demostración (a)}
+
+Se que $result = 0 $ y que $ i = 0 $
+
+Quiero probar que:
+\begin{itemize}
+    \item $ 0 \leq i \leq n+1 $. Vale pues $n \geq 0$ e $ i = 0 $
+    \item $ i \bmod 2 = 0 $. Vale pues $ 0 \bmod 2 = 0 $
+    \item $ result = \sum_{j = 0}^{i-1}\IfThenElse{j \bmod 2 = 0}{j}{0} $
+\end{itemize}
+
+Con $ i = 0 \implies \sum_{j = 0}^{0-1}\IfThenElse{j \bmod 2 = 0}{j}{0} = 0= result $
+
+Luego $ P_c \implies I $ como se quería probar.
+
+\textbf{Demostración (c)}
+
+\begin{align*}
+    (I \wedge \neg B) \equiv \{ 0 \leq i \leq n+1 \wedge i\geq n \wedge i \bmod 2 = 0 \wedge result = \sum_{j = 0}^{i-1}\IfThenElse{j \bmod 2 = 0}{j}{0}  \}
+\end{align*}
+
+Luego se que $ n \leq i \leq n+1 \iff i =n \vee i = n+1 $
+
+Separo en casos par e impar,
+\begin{itemize}
+    \item $ n$ par $\implies i = n+n \bmod 2 = n $
+    \item $ n$ impar $\implies i = n+n \bmod 2 = n+1 $
+\end{itemize}
+
+Y con los valores de $i$ hallados,
+\begin{itemize}
+    \item $ i = n \implies result = \sum_{j = 0}^{n-1}\IfThenElse{j \bmod 2 = 0}{j}{0} $
+    \item $ i = n + 1 \implies result = \sum_{j = 0}^{n}\IfThenElse{j \bmod 2 = 0}{j}{0} = \sum_{j = 0}^{n-1}\IfThenElse{j \bmod 2 = 0}{j}{0} + 0 $
+\end{itemize}
+
+Luego $ (I \wedge \neg B) \implies Q_c $ como se quería probar.
+
+
+\end{document}
