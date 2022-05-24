@@ -24,7 +24,7 @@ Actualizaciones
 * [Práctica 2](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%202.pdf) | [solución](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Soluciones/Pr%C3%A1ctica%202.pdf)
 * [Práctica 3](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%203.pdf) | [solución](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Soluciones/Pr%C3%A1ctica%203.pdf)
 * [Práctica 4](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%204.pdf) | [solución](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Soluciones/Pr%C3%A1ctica%204.pdf)
-* [Práctica 5](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%205.pdf) <!-- | [solución](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Soluciones/Pr%C3%A1ctica%204.pdf) -->
+* [Práctica 5](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%205.pdf) | [solución](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Soluciones/Pr%C3%A1ctica%205.pdf)
 * [Práctica 6](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%206.pdf) | [solución](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Soluciones/Pr%C3%A1ctica%206.pdf)
 
 
