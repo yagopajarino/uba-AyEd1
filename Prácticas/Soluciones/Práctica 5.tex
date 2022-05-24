@@ -197,5 +197,56 @@ Y con los valores de $i$ hallados,
 
 Luego $ (I \wedge \neg B) \implies Q_c $ como se quería probar.
 
+\textbf{Demostración (b)}
+
+$ \{ I \wedge B \} S \{ I \} \iff (I \wedge B) \implies wp(S, I) $
+
+Luego,
+\begin{align*}
+    wp(S, I) &\equiv wp(result := result + 1, wp(i := i+2, I)) \\
+    &\equiv wp(result := result + 1, (0 \leq i+2 \leq n+1 \wedge i+2 \bmod 2 = 0\wedge result = \sum_{j = 0}^{i+2-1}\IfThenElse{j \bmod 2 = 0}{j}{0})) \\
+    &\equiv def(result + 1) \yLuego (0 \leq i+2 \leq n+1 \wedge i+2 \bmod 2 = 0\wedge result + 1 = \sum_{j = 0}^{i+2-1}\IfThenElse{j \bmod 2 = 0}{j}{0}) \\
+    &\equiv \{ 0 \leq i+2 \leq n+1 \wedge i \bmod 2 = 0\wedge result + i = \sum_{j = 0}^{i+1}\IfThenElse{j \bmod 2 = 0}{j}{0} \} \\
+\end{align*}
+Queda ver que $ (I \wedge B) \implies wp(S, I) $
+
+Entonces, $ (I \wedge B) \equiv 0 \leq i \leq n+1 \wedge i<n \wedge i \bmod 2 = 0\wedge result = \sum_{j = 0}^{i-1}\IfThenElse{j \bmod 2 = 0}{j}{0} $
+
+Y quiero probar,
+\begin{itemize}
+    \item $ 0 \leq i + 2 $. Vale pues por I, $ 0 \leq i $
+    \item $ i+2 \leq n+1 $. Vale pues $ i < n \iff i+1 \leq n \iff i+2 \leq n+1 $
+    \item $ i \bmod 2 = 0 $. Vale por $I$
+    \item $ result = \sum_{j = 0}^{i-1}\IfThenElse{j \bmod 2 = 0}{j}{0} $
+\end{itemize}
+
+La última condicion vale pues la sumatoria entre $ 0 \leq j \leq i-1 $ vale por $I$, dado que $i$ es par, el i-ésimo termino de la sumatoria es igual a i y el $i+1$ es cero.
+
+Por lo tanto el ciclo es parcialmente correcto respecto a su especificación.
+
+Para probar finalización del ciclo tengo que probar:
+\begin{enumerate}[label=(\alph*)]
+    \item $ \{ I \wedge B \wedge f_v = v_0 \} S \{ f_v < v_0 \} $
+    \item $ (I \wedge f_v \leq 0) \implies \neg B $
+\end{enumerate}
+
+Sea $ f_v = n-i $
+
+\textbf{Demostración (b)}
+
+$ n-i \leq 0 \iff n-i+i \leq i \iff n \leq i \equiv \neg B $
+
+\textbf{Demostración (a)}
+
+$ \{ I \wedge B \wedge f_v = v_0 \} S \{ f_v < v_0 \} \iff (I \wedge B \wedge f_v = v_0) \implies wp(S, f_v < v_0) $
+\begin{align*}
+    wp(S, f_v < v_0) &\equiv wp(result := result + 1, wp(i := i+2, f_v < v_0)) \\
+    &\equiv wp(result := result + 1, n-(i+2) < v_0 ) \\
+    &\equiv \{ n-(i+2) < v_0 \} \\
+    &\equiv \{ n-i-2 < v_0 \} \\
+\end{align*}
+Pero $ f_v = v_0 \implies n-i = v_0 \implies n-i-2 = v_0 -2 < v_0 \iff -2 < 0 $
+
+Luego el ciclo finaliza y por lo tanto es correcto respecto a su especificación.
 
 \end{document}
