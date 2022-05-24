@@ -48,7 +48,7 @@ void incSecuencia(vector<int> &a) {
 
 Busco contar la cantidad de apariciones de un elemento en una secuencia, utilizando como invariante:
 
-$ I \equiv 0 \leq i \leq |s| \wedge_L r = \#Apariciones(subseq(s,0,i),e) $
+$ I \equiv 0 \leq i \leq |s| \wedge_L r = $ \#Apariciones(subseq(s,0,i),e)
 
 Y un `for` como estructura de control de iteración.
 
@@ -69,7 +69,7 @@ int cantidadApariciones(vector<int> s, int e) {
 
 Me piden un ciclo que eleve al cuadrado cada elemento de la secuencia. Y que cumpla con el invariante:
 
-$ I \equiv (|s| = |S_0| \wedge -1 \leq i \leq |s|-1) \wedge_L \\(\forall j: \mathbb{Z})(0 \leq j \leq i \implies_L s[j] = S_0[j]^2) \wedge \\(\forall j: \mathbb{Z})(i < j < |s| \implies_L s[j] = S_0=[j]) $
+$ I \equiv (|s| = |S_0| \wedge -1 \leq i \leq |s|-1) \wedge_L (\forall j: \mathbb{Z})(0 \leq j \leq i \implies_L s[j] = S_0[j]^2) \wedge (\forall j: \mathbb{Z})(i < j < |s| \implies_L s[j] = S_0=[j]) $
 
 Y armar dos implementaciones.
 
@@ -98,7 +98,7 @@ for(int i = -1, i < s.size()-1, i++) {
 
 Me piden armar un programa que duplique cada elemento de una secuencia, que cumpla con el siguiente invariante,
 
-$ I \equiv (|s| = |S_0| \wedge (0 \leq i \leq |s|/2)) \wedge_L \\ subseq(s, 0, |s|-2*i) = subseq(s_0, 0, |s_0|-2*i) \wedge \\(\forall k: \mathbb{Z})(|s|-2*i \leq k < |s| \implies_L s[k] = 2*s_0[k]) $
+$ I \equiv (|s| = |S_0| \wedge (0 \leq i \leq |s|/2)) \wedge_L subseq(s, 0, |s|-2i) = subseq(s_0, 0, |s_0|-2i) \wedge (\forall k: \mathbb{Z})(|s|-2i \leq k < |s| \implies_L s[k] = 2s_0[k]) $
 
 Mirando el invariante, veo que en cada iteración se duplican dos elementos de la secuencia y lo hace desde el final hacia adelante.
 
