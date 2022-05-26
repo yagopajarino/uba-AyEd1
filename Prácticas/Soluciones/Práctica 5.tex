@@ -249,4 +249,259 @@ Pero $ f_v = v_0 \implies n-i = v_0 \implies n-i-2 = v_0 -2 < v_0 \iff -2 < 0 $
 
 Luego el ciclo finaliza y por lo tanto es correcto respecto a su especificación.
 
+\subsection{Ejercicio 3}
+
+\subsubsection{Pregunta i}
+
+\begin{lstlisting}[language = C++]
+    int result = 1;
+    int i = 0;
+    while ( i < n ) {
+        result = result * m;
+        i = i + 1;
+    }
+\end{lstlisting}
+
+Defino,
+\begin{itemize}
+    \item $ P_C \equiv \{ result = 1 \wedge i = 0 \} $
+    \item $ Q_C \equiv \{ result = m^n \} $
+    \item $ I \equiv \{ 0 \leq i \leq n \wedge result = m^i \} $
+    \item $ B \equiv \{ i < n \} $
+\end{itemize}
+
+Para probar la correctitud del ciclo tengo que demostrar que valen:
+\begin{enumerate}[label=(\alph*)]
+    \item $ P_c \implies I $
+    \item $ \{ I \wedge B \} S \{ I \} $
+    \item $ (I \wedge \neg B) \implies Q_c $
+\end{enumerate}
+
+\textbf{Demostración (a)}
+
+$ i = 0 \implies 0 \leq i $ y por $ Pre: n \geq 0 \implies i \leq n $
+
+$ i = 0 \implies m^0 = 1 = result $
+
+\textbf{Demostración (c)}
+
+$ (I \wedge \neg B) \equiv \{ 0 \leq i \leq n \wedge result = m^i \wedge i \geq n \} $
+
+Luego se que $ (I \wedge \neg B) \implies i = n \implies result = m^n \equiv Post $
+
+\textbf{Demostración (b)}
+
+$ \{ I \wedge B \} S \{ I \} \iff (I \wedge B) \implies wp(S,I) $
+
+Luego,
+\begin{align*}
+    wp(S,I) &\equiv wp(result = result * m, wp(i= i+1, I)) \\
+    &\equiv wp(result = result * m, def(i+1) \yLuego 0 \leq i+1 \leq n \wedge result = m^{i+1}) \\
+    &\equiv wp(result = result * m,0 \leq i+1 \leq n \wedge result = m^{i+1}) \\
+    &\equiv def(result * m) \yLuego 0 \leq i+1 \leq n \wedge result * m = m^{i+1} \\
+    &\equiv 0 \leq i+1 \leq n \wedge result * m = m^{i+1} \\
+\end{align*}
+
+$ 0 \leq i \leq n \wedge i < n \implies 0 \leq i < n \implies   \leq i+1 \wedge i<n \implies i+1 \leq n$
+
+$ result = m^i \iff resutl * m = m^i * m \iff result * m = m^{i+1} $
+
+Por lo tanto queda probado que el ciclo es parcialmente correcto.
+
+Para probar finalización del ciclo tengo que probar:
+\begin{enumerate}[label=(\alph*)]
+    \item $ \{ I \wedge B \wedge f_v = v_0 \} S \{ f_v < v_0 \} $
+    \item $ (I \wedge f_v \leq 0) \implies \neg B $
+\end{enumerate}
+
+Sea $ f_v = n-i $
+
+\textbf{Demostración (b)}
+
+$ (I \wedge f_v \leq 0) \equiv \{ 0 \leq i \leq n \wedge result = m^i \wedge n-i \leq 0 \} $
+
+Pero, $ n-i \leq 0 \implies n \leq i \implies i \geq n \equiv \neg B $
+
+\textbf{Demostración (a)}
+
+$ \{ I \wedge B \wedge f_v = v_0 \} S \{ f_v < v_0 \} \iff (I \wedge B \wedge f_v = v_0) \implies wp(S, f_v < v_0) $ 
+\begin{align*}
+    wp(S,f_v < v_0) &\equiv wp(result = result * m, wp(i= i+1, n-i < v_0)) \\
+    &\equiv wp(result = result * m, def(i+1) \yLuego n-(i+1) < v_0) \\
+    &\equiv wp(result = result * m, n-(i+1) < v_0) \\
+    &\equiv \{ def(result * m) \yLuego n-(i+1) < v_0 \} \\
+    &\equiv \{ n-(i+1) < v_0 \} \\
+\end{align*}
+
+Pero, $ n-i = v_0 \implies n-i-1 < v_0 \iff v_0 - 1 < v_0 \iff -1 < 0 $
+
+Por lo tanto el ciclo finaliza. Y el programa es correcto respecto a su especificación.
+
+\subsubsection{Pregunta ii}
+
+Falla la demostración de $ \{ I \wedge B \}S\{ I \} $
+
+\subsubsection{Pregunta iii}
+
+Es correcto, solo hay que probar de nuevo los puntos (2) y (4) de la demostración.
+
+\subsubsection{Pregunta iv}
+
+Se puede pedir $ n \geq 2 $ en la precondición.
+
+\subsection{Ejercicio 4}
+
+\subsubsection{Pregunta i}
+
+\begin{lstlisting}[language = C++]
+    int i = 1;
+    int result = 0;
+    while (i <= n) {
+        if (n % i == 0) {
+            result = result + 1;
+        }
+        i = i + 1;
+    }
+\end{lstlisting}
+
+\subsubsection{Pregunta ii}
+
+El invariante propuesto falla en la última iteración, hay que cambiarlo por \\
+$ \{ 1 \leq i \leq n \wedge result = \sum_{j = 1}^{i}\IfThenElse{n \bmod j = 1}{j}{0} \} $
+
+\subsection{Ejercicio 5}
+
+\subsubsection{Pregunta i}
+\pagebreak
+\begin{lstlisting}[language = C++]
+    int result = 0;
+    int j = 0;
+    while (j < s.size()) {
+        if (j % 2 == 1) {
+            result = result + s[j];
+        }
+        j = j+1;
+    }
+\end{lstlisting}
+
+\subsubsection{Pregunta ii}
+
+Defino,
+\begin{itemize}
+    \item $ P_C \equiv \{ result = 0 \wedge j = 0 \} $
+    \item $ Q_C \equiv \{ result = \sum_{i=0}^{|s|-1}\IfThenElse{i \bmod 2 = 1}{s[i]}{0} \} $
+    \item $ I \equiv \{ 0 \leq j \leq |s| \wedge result = \sum_{i=0}^{j-1}\IfThenElse{i \bmod 2 = 1}{s[i]}{0} \} $
+    \item $ B \equiv \{ j < |s| \} $
+    \item $ f_v = |s| - j $
+\end{itemize}
+
+Para probar la correctitud del ciclo tengo que demostrar que valen:
+\begin{enumerate}[label=(\alph*)]
+    \item $ P_c \implies I $
+    \item $ \{ I \wedge B \} S \{ I \} $
+    \item $ (I \wedge \neg B) \implies Q_c $
+    \item $ \{ I \wedge B \wedge f_v = v_0 \} S \{ f_v < v_0 \} $
+    \item $ (I \wedge f_v \leq 0) \implies \neg B $
+\end{enumerate}
+
+\textbf{Demostración (a)}
+
+$ j = 0 \implies 0 \leq j \leq |s| $
+
+$ j = 0 \implies \sum_{i=0}^{j-1}\IfThenElse{i \bmod 2 = 1}{s[i]}{0} = 0 = result $
+
+\textbf{Demostración (c)}
+
+$ 0 \leq j \leq |s| \wedge j \geq |s| \implies j = |s| \implies result = \sum_{i=0}^{|s|-1}\IfThenElse{i \bmod 2 = 1}{s[i]}{0} \equiv Q_c $
+
+\textbf{Demostración (b)}
+
+$ \{ I \wedge B \} S \{ I \} \iff (I \wedge B) \implies wp(S, I) $
+
+Luego,
+\begin{align*}
+    wp(S, I) &\equiv wp(if(...), wp(j = j+1, I)) \\
+    &\equiv wp(if(...), def(j+1) \yLuego (0 \leq j+1 \leq |s| \wedge result = \sum_{i=0}^{j+1-1}\IfThenElse{i \bmod 2 = 1}{s[i]}{0})) \\
+    &\equiv wp(if(...), (0 \leq j+1 \leq |s| \wedge result = \sum_{i=0}^{j}\IfThenElse{i \bmod 2 = 1}{s[i]}{0})) \\
+    &\equiv (j \bmod 2 = 1 \wedge wp(result = result +1,(0 \leq j+1 \leq |s| \wedge result = \sum_{i=0}^{j}\IfThenElse{i \bmod 2 = 1}{s[i]}{0}))) \vee \\
+    &\quad \; (j \bmod 2 = 0 \wedge wp(skip,(0 \leq j+1 \leq |s| \wedge result = \sum_{i=0}^{j}\IfThenElse{i \bmod 2 = 1}{s[i]}{0}))) \\
+    &\equiv (j \bmod 2 = 1 \wedge (0 \leq j+1 \leq |s| \wedge result+1 = \sum_{i=0}^{j}\IfThenElse{i \bmod 2 = 1}{s[i]}{0})) \vee \\
+    &\quad \; (j \bmod 2 = 0 \wedge (0 \leq j+1 \leq |s| \wedge result = \sum_{i=0}^{j}\IfThenElse{i \bmod 2 = 1}{s[i]}{0})) \\
+\end{align*}
+Por $ (I \wedge B) $ vale que $ 0 \leq j+1 \leq |s| $ en ambas ramas del if.
+
+Ambas sumatorias valen pues dependiendo de la paridad de $j$, se suma $1$ a la sumatoria. Y la sumatoria entre $ 0 \leq j \leq |s| $ vale por $I$
+
+\textbf{Demostración (e)}
+
+$ |s| - j < 0 \implies j \geq |s| \equiv \neq B $
+
+\textbf{Demostración (d)}
+
+$ \{ I \wedge B \wedge f_v = v_0 \} S \{ f_v < v_0 \} \iff (I \wedge B \wedge f_v = v_0) \implies wp(S, f_v < v_0) $
+\begin{align*}
+    wp(S, f_v < v_0) &\equiv wp(if(...), wp(j = j+1, f_v < v_0)) \\
+    &\equiv wp(if(...), def(j+1) \yLuego |s| - (j+1) < v_0) \\
+    &\equiv wp(if(...), |s| - (j+1) < v_0) \\
+    &\equiv (j \bmod 2 = 1 \wedge |s| - (j+1) < v_0) \vee ((j \bmod 2 \neq 1 \wedge |s| - (j+1) < v_0)) \\
+    &\equiv \{ |s| - (j+1) < v_0 \} \\
+\end{align*}
+
+Luego $ |s| - j - 1 < v_0 \iff v_0 -1 < v_0 \iff -1 < 0 $
+
+Por lo tanto el ciclo es correcto.
+
+\subsection{Ejercicio 6}
+
+\subsubsection{Pregunta i}
+
+\begin{itemize}
+    \item $ P_c \equiv \{ i = 0 \wedge j = 1 \} $
+    \item $ Q_c \equiv Post $
+\end{itemize}
+
+\subsubsection{Pregunta ii}
+
+Defino,
+\begin{itemize}
+    \item $ P_C \equiv \{ i = 0 \wedge j = 1 \} $
+    \item $ Q_C \equiv Post $
+    \item $ I \equiv \{ (0 \leq i < |s| \wedge 1 \leq j \leq |s|) \yLuego (\forall k: \ent)(0 \leq k < j \implicaLuego s[k] \leq s[i]) \} $
+    \item $ B \equiv \{ j < |s| \} $
+\end{itemize}
+
+Para probar la correctitud parcial del ciclo tengo que demostrar que valen:
+\begin{enumerate}[label=(\alph*)]
+    \item $ P_c \implies I $
+    \item $ \{ I \wedge B \} S \{ I \} $
+    \item $ (I \wedge \neg B) \implies Q_c $
+\end{enumerate}
+
+\textbf{Demostración (a)}
+
+$ i = 0 \wedge j = 1 \implies 0 \leq 0 \leq |s| \wedge 1 \leq 1 \leq |s| \wedge k = 0 \implies s[0] = s[0] $
+
+\textbf{Demostración (c)}
+
+$ 1 \leq j \leq |s| \wedge j \geq |s| \implies j = |s| \implies (\forall k: \ent)(0 \leq k \leq |s| \implicaLuego s[k] \leq s[i]) \equiv Q_C $
+
+\textbf{Demostración (b)}
+
+$ \{ I \wedge B \} S \{ I \} \iff (I \wedge B) \implies wp(C, I) $
+\begin{align*}
+    wp(C, I) &\equiv wp(iff(...), wp(j=j+1, I)) \\
+    &\equiv wp(if(...), def(j+1) \yLuego (0 \leq i < |s| \wedge 1 \leq j+1 \leq |s|) \yLuego (\forall k: \ent)(0 \leq k < j+1 \implicaLuego s[k] \leq s[i])) \\
+    &\equiv wp(if(...), (0 \leq i < |s| \wedge 1 \leq j+1 \leq |s|) \yLuego (\forall k: \ent)(0 \leq k < j+1 \implicaLuego s[k] \leq s[i])) \\
+    &\equiv def(s[j] > s[i]) \yLuego (s[j] > s[i] \wedge wp(i = j, (0 \leq i < |s| \wedge 1 \leq j+1 \leq |s|) \yLuego (\forall k: \ent)(0 \leq k < j+1 \implicaLuego s[k] \leq s[i])) \vee \\
+    &\qquad \qquad \qquad \qquad \quad \; \; (s[j] \leq s[i] \wedge wp(skip, (0 \leq i < |s| \wedge 1 \leq j+1 \leq |s|) \yLuego (\forall k: \ent)(0 \leq k < j+1 \implicaLuego s[k] \leq s[i])))) \\
+    &\equiv 0 \leq j < |s| \wedge 0 \leq i < |s| \yLuego (s[j] > s[i] \wedge (0 \leq j < |s| \wedge 1 \leq j+1 \leq |s|) \yLuego (\forall k: \ent)(0 \leq k < j+1 \implicaLuego s[k] \leq s[j])) \vee \\
+    &\qquad \qquad \qquad \qquad \qquad \qquad \quad \; (s[j] \leq s[i] \wedge (0 \leq i < |s| \wedge 1 \leq j+1 \leq |s|) \yLuego (\forall k: \ent)(0 \leq k < j+1 \implicaLuego s[k] \leq s[i])) \\
+\end{align*}
+
+\subsubsection{Pregunta ii}
+
+$ f_v = |s| - j -1 $
+
+TODO la demostración de finalización.
+
 \end{document}
