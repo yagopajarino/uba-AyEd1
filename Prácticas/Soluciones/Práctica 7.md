@@ -131,3 +131,55 @@ void dividirPorPromedio(vector<float> &s) {
     }
 }
 ```
+
+## Ejercicio 7
+
+### invariante (a)
+
+```C++
+void armarPiramide(int k, vector<int> &v) {
+    int i = v.size() / 2;
+    while( i < v.size() ) {
+        v[i] = k + v.size() - i - 1;
+        v[v.size()/2 - i] = k + v.size()/2 - i;
+        i++;
+    }
+}
+```
+
+### Invariante (b)
+
+```C++
+void armarPiramide(int k, vector<int> &v) {
+    int i = 0;
+    while( i < v.size() ) {
+        if ( i < l.size() / 2 ) {
+            l[i] = k + i;
+        } else {
+            l[i] = k + v.size() - i - 1;
+        }
+        i++;
+    }
+}
+```
+
+## Ejercicio 8
+
+```C++
+vector<float> multiplicar(vector<float> v) {
+    vector<float> result(v.size());
+    int i = v.size() / 2;
+    while ( i < v.size() ) {
+        if ( i % 2 == 0 ) {
+            v[i-1] = v[i-1] * 10;
+            v[v.size() - i + 1] = v[v.size() - i + 1] * 10;
+        }
+        i = i + 2;
+    }
+    return result;
+}
+```
+
+## Ejercicio 9
+
+Este estaba complicado 🥲
