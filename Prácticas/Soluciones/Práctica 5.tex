@@ -504,4 +504,208 @@ $ f_v = |s| - j -1 $
 
 TODO la demostración de finalización.
 
+\subsection{Ejercicio 7}
+
+\subsubsection{Pregunta i}
+
+\begin{itemize}
+    \item $ P_c \equiv i = 0 \wedge |r| = |s| $
+    \item $ Q_c \equiv Post $
+\end{itemize}
+
+\subsubsection{Pregunta ii}
+
+Defino,
+\begin{itemize}
+    \item $ P_C \equiv \{ i = 0 \wedge |r| = |s| \} $
+    \item $ Q_C \equiv Post $
+    \item $ I \equiv \{ 0 \leq i \leq |s| \wedge |s| = |r| \wedge (\forall j: \ent)(0 \leq j < i \implicaLuego s[j] = r[j]) \} $
+    \item $ B \equiv \{ i < |s| \} $
+\end{itemize}
+
+Para probar la correctitud parcial del ciclo tengo que demostrar que valen:
+\begin{enumerate}[label=(\alph*)]
+    \item $ P_c \implies I $
+    \item $ \{ I \wedge B \} S \{ I \} $
+    \item $ (I \wedge \neg B) \implies Q_c $
+\end{enumerate}
+
+\textbf{Demostración (a)}
+
+$ i = 0 \implies 0 \leq i \leq |s| $
+
+$ |s| = |r| \implies |s| = |r| $
+
+$ i = 0 \implies (\forall j: \ent)(0 \leq j < 0 \implicaLuego s[j] = r[j]) $ pero $ 0 \leq j < 0 \equiv False $
+
+\textbf{Demostración (c)}
+
+$ (I \wedge \neg B) \equiv 0 \leq i \leq |s| \wedge |s| = |r| \wedge (\forall j: \ent)(0 \leq j < i \implicaLuego s[j] = r[j]) \wedge i \geq |s| $
+
+Pero, $ 0 \leq i \leq |s| \wedge i \geq |s| \implies i = |s| $
+
+Luego, $ i = 0 \implies |s| = |r| \wedge (\forall j: \ent)(0 \leq j < |s| \implicaLuego s[j] = r[j]) \equiv Q_c $
+
+\textbf{Demostración (b)}
+
+$ \{ I \wedge B \} S \{ I \} \iff (I \wedge B) \implies wp(S,I) $
+
+\begin{align*}
+    wp(S,I) &\equiv wp(r[i] = s[i], wp(i=i+1, I)) \\
+    &\equiv wp(r[i] = s[i], def(i+1) \yLuego 0 \leq i+1 \leq |s| \wedge |s| = |r| \wedge (\forall j: \ent)(0 \leq j < i+1 \implicaLuego s[j] = r[j])) \\
+    &\equiv wp(r = setAt(r,i,s[i]), 0 \leq i+1 \leq |s| \wedge |s| = |r| \wedge (\forall j: \ent)(0 \leq j < i+1 \implicaLuego s[j] = r[j])) \\
+    &\equiv 0 \leq i < |s| \yLuego |s| = |r| \wedge (\forall j: \ent)(0 \leq j < i \implicaLuego s[j] = r[j])) \\
+\end{align*}
+Es facil ver que por $ I\wedge B $ valen los tres elementos de la conjunción.
+
+Luego el ciclo es parcialmente correcto.
+
+\subsubsection{Pregunta iii}
+
+Defino $ f_v = |s| - i $
+
+Para probar finalización del ciclo tengo que probar:
+\begin{enumerate}[label=(\alph*)]
+    \item $ \{ I \wedge B \wedge f_v = v_0 \} S \{ f_v < v_0 \} $
+    \item $ (I \wedge f_v \leq 0) \implies \neg B $
+\end{enumerate}
+
+\textbf{Demostración (b)}
+
+$ (I \wedge f_v \leq 0) \implies |s| - i \leq 0 \implies i \geq |s| \equiv \neg B $
+
+\textbf{Demostración (a)}
+
+$ \{ I \wedge B \wedge f_v = v_0 \} S \{ f_v < v_0 \} \iff (I \wedge B \wedge f_v = v_0) \implies wp(S, f_v < v_0) $
+\begin{align*}
+    wp(S,I) &\equiv wp(r[i] = s[i], wp(i=i+1, |s| - i < v_0)) \\
+    &\equiv wp(r[i] = s[i], |s| - (i+1) < v_0) \\
+    &\equiv |s| - (i+1) < v_0 \\
+\end{align*}
+
+Pero $ f_v = v_0 \implies v_0 - 1 < v_0 \iff -1 < 0 $
+
+Así queda probado que el ciclo finaliza.
+
+\subsection{Ejercicio 8}
+
+\subsubsection{Pregunta i}
+
+\begin{itemize}
+    \item $ P_c \equiv \{ i = d \} $
+    \item $ q_c \equiv Post $
+\end{itemize}
+
+\subsubsection{Pregunta ii}
+
+Defino,
+\begin{itemize}
+    \item $ P_C \equiv \{ i = d \} $
+    \item $ Q_C \equiv Post $
+    \item $ I \equiv \{ d \leq i \leq |s| \wedge |s| = |s_0| \yLuego (\forall j: \ent)(0 \leq j < d \implicaLuego s[j] = s_0[j]) \wedge (\forall j: \ent)(d \leq j < |s| \implicaLuego s[j] = e) \} $
+    \item $ B \equiv \{ i < |s| \} $
+\end{itemize}
+
+Para probar la correctitud parcial del ciclo tengo que demostrar que valen:
+\begin{enumerate}[label=(\alph*)]
+    \item $ P_c \implies I $
+    \item $ \{ I \wedge B \} S \{ I \} $
+    \item $ (I \wedge \neg B) \implies Q_c $
+\end{enumerate}
+
+TODO. Hecho en clase 20/04/2022.
+
+\subsection{Ejercicio 9}
+
+\subsubsection{Pregunta i}
+
+Defino,
+\begin{itemize}
+    \item $ P_C \equiv \{ |s| \bmod 2 = 0 \wedge i = |s| - 1\wedge suma = 0 \} $
+    \item $ Q_C \equiv \{ |s| \bmod 2 = 0 \wedge i = |s| / 2 -1 \yLuego suma = \sum_{j=0}^{|s|/2-1}s[j] \} $
+    \item $ I \equiv \{ |s|/2 - 1 \leq i \leq |s|-1 \wedge |s| \bmod 2 = 0 \wedge suma = \sum_{j=0}^{|s|-2-i} \} $
+    \item $ B \equiv \{ i \geq |s|/2 \} $
+\end{itemize}
+
+Para probar la correctitud parcial del ciclo tengo que demostrar que valen:
+\begin{enumerate}[label=(\alph*)]
+    \item $ P_c \implies I $
+    \item $ \{ I \wedge B \} S \{ I \} $
+    \item $ (I \wedge \neg B) \implies Q_c $
+\end{enumerate}
+
+\subsubsection{Pregunta ii}
+
+$ f_v = i - |s|/2 - 1 $
+
+\subsubsection{Pregunta iii}
+
+TODO
+
+\subsection{Ejercicio 10}
+
+\subsubsection{Pregunta i}
+
+\begin{lstlisting}[language = C++]
+    int i = 0;
+    while (i < s.size()) {
+        if (s[i] == a) {
+            s[i] = b;
+        }
+        i = i+1;
+    }
+\end{lstlisting}
+
+\subsubsection{Pregunta ii}
+
+\begin{itemize}
+    \item $ P_c \equiv i = 0 \wedge |s| = |s_0| $
+    \item $ Q_c \equiv Post $
+\end{itemize}
+
+\subsubsection{Pregunta iii}
+
+Defino,
+\begin{itemize}
+    \item $ P_C \equiv \{ i = 0 \wedge |s| = |s_0| \} $
+    \item $ Q_C \equiv Post $
+    \item $ I \equiv \{ |s| = |s_0| \wedge 0 \leq i \leq |s| \wedge (\forall j: \ent)((0 \leq j < i \yLuego s_0[j] = a) \implicaLuego s[j] = b) \wedge (\forall j: \ent)((0 \leq j < i \yLuego s_0[j] \neq a) \implicaLuego s[j] = s_0[j]) \} $
+    \item $ B \equiv \{ i < |s| \} $
+\end{itemize}
+
+Para probar la correctitud parcial del ciclo tengo que demostrar que valen:
+\begin{enumerate}[label=(\alph*)]
+    \item $ P_c \implies I $
+    \item $ \{ I \wedge B \} S \{ I \} $
+    \item $ (I \wedge \neg B) \implies Q_c $
+\end{enumerate}
+
+\textbf{Demostración (a)}
+
+$ i = 0 \implies 0 \leq i \leq |s| $
+
+Ambos $ \forall $ son verdaderos pues $ i = 0 $ implica antecedente falso y por lo tanto implicación verdadera.
+
+\textbf{Demostración (c)}
+
+$ (I \wedge \neg B) \implies 0 \leq i \leq |s| \wedge i \geq |s| \implies i = |s| \implies $ ambos $ \forall $ igual que en $Post$
+
+\textbf{Demostración (b)}
+
+$ \{ I \wedge B \} S \{ I \} \iff (I \wedge B) \implies wp(S, I) $
+\begin{align*}
+    wp(S, I) &\equiv wp((if(...), wp(i=i+1, I))) \\
+    &\equiv wp((if(...), I(i+1))) \\
+    &\equiv def(i < |s|) \yLuego (i < |s| \wedge wp(s=setAt(s, i, b), I(i+1))) \vee (i \geq |s| \wedge wp(skip, I(i+1))) \\
+    &\equiv (i < |s| \wedge 0 \leq i < |s| \yLuego |s| = |s_0| \wedge 0 \leq i+1 \leq |s| \wedge (\forall j: \ent)((0 \leq j < i+1 \yLuego s_0[j] = a) \implicaLuego setAt(s, i, b)[j] = b) \wedge \\
+    &\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad (\forall j: \ent)((0 \leq j < i+1 \yLuego s_0[j] \neq a) \implicaLuego setAt(s, i, b)[j] = s_0[j])) \vee \\
+    &\quad (i \geq |s| \wedge |s| = |s_0| \wedge 0 \leq i+1 \leq |s| \wedge (\forall j: \ent)((0 \leq j < i+1 \yLuego s_0[j] = a) \implicaLuego s[j] = b) \wedge \\
+    &\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \quad \; \; (\forall j: \ent)((0 \leq j < i+1 \yLuego s_0[j] \neq a) \implicaLuego s[j] = s_0[j])) \\
+\end{align*}
+Y usando $ I \wedge B $ hay que probar cada termino de la conjunción.
+
+\subsubsection{Pregunta iv}
+
+$ f_v = |s| - i $
+
 \end{document}
