@@ -1,6 +1,6 @@
 # Laboratorio 8. Strings
 
-Uso de la clase `string``
+Uso de la clase `string`
 
 Cabecera para poder usar las clases `vector`y `string`
 
