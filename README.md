@@ -42,11 +42,13 @@ Actualizaciones
 | 5   | C++      | Programacion con invariantes | [enunciado]( https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo05.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%205) |
 | 6   | C++      | Testing                      | [enunciado]( https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo06.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%206) |
 | 7   | C++      | Matrices                     | [enunciado]( https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo07.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%207) |
+| 8   | C++      | Strings                     | [enunciado]( https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo08.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%208) |
 
 ## Entregas
 
 * [Entrega 1 C++](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega1/Enunciados) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega1/Resoluciones)
 * [Entrega 2 C++](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega2/Enunciados) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega2/Resoluciones)
+* [Entrega 3 C++](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega3/Enunciados) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega3/Resoluciones)
 
 ## Contribuciones
 
