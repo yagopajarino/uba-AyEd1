@@ -708,4 +708,175 @@ Y usando $ I \wedge B $ hay que probar cada termino de la conjunción.
 
 $ f_v = |s| - i $
 
+\subsection{Ejercicio 11}
+
+Tengo que probar que vale la tripla de Hoare $ \{Pre\} S \{Post\} $
+
+La estrategia en la demostración en programas completos que tienen un ciclo es dividir en tres:
+\begin{enumerate}
+    \item $ Pre \implies wp(A, P_c) $
+    \item $ \{P_c\} C \{Q_c\} $
+    \item $ Q_c \implies wp(B, Q_c) $
+\end{enumerate}
+Con,
+\begin{itemize}
+    \item A: código antes del ciclo
+    \item C: ciclo
+    \item B: código después del ciclo
+\end{itemize}
+Por lo tanto tengo que probar,
+\begin{enumerate}[label=(\alph*)]
+    \item $ wp(S_4, Post) $
+    \item $ wp(C, (a)) $
+    \item $ wp(S_2, (b)) $
+    \item $ wp(S_1, (c)) $
+\end{enumerate}
+
+\textbf{Demostración (a)}
+\begin{align*}
+    wp(S_4, Post) &\equiv def(j) \yLuego j = -1 \implies (\forall j: \ent)(0 \leq j < |s| \implicaLuego s[j] \neq e) \wedge \\
+    &\qquad \qquad \quad \; \; \; j \neq -1 \implies (0 \leq j < |s| \yLuego s[j] = e)
+\end{align*}
+
+Esto es lo que uso como $Pre$ para probar el ciclo usando el teorema del invariante.
+
+\textbf{Demostración (b)}
+
+Defino,
+\begin{itemize}
+    \item $ P_c \equiv i = |s| - 1 \wedge j = -1 $
+    \item $ Q_c \equiv (a) $
+    \item $ I \equiv -1 \leq i \leq |s|-1 \wedge j = -1 \implies (\forall j: \ent)(i \leq j < |s| \implicaLuego s[j] \neq e) \wedge
+    j \neq -1 \implies (i < j < |s| \yLuego s[j] = e) $
+    \item $ B \equiv i \geq 0 $
+\end{itemize}
+Para probar la correctitud parcial del ciclo tengo que demostrar que valen:
+\begin{enumerate}[label=(\alph*)]
+    \item $ P_c \implies I $
+    \item $ \{ I \wedge B \} S \{ I \} $
+    \item $ (I \wedge \neg B) \implies Q_c $
+\end{enumerate}
+\textbf{Demostración (b.a)}
+
+Se que $ i = |s|-1 \wedge j = -1 $. Luego valen,
+\begin{itemize}
+    \item $ -1 \leq i \leq |s|-1 $
+    \item $ j = -1 \implies  (\forall j: \ent)(i \leq j < |s| \implicaLuego s[j] \neq e) $
+    \item $ j \neq -1 \implies (...) $ pues el antecedente es falso.
+\end{itemize}
+
+\textbf{Demostración (b.c)}
+
+Por $ (I \wedge \neg B) $ se que $ i = -1 $ luego valen ambos casos $ j = -1 \wedge j \neq -1 $
+
+\textbf{Demostración (b.b)}
+
+$ \{ I \wedge B \} S \{ I \} \iff (I \wedge B) \implies wp(S, I) $
+\begin{align*}
+    wp(S, I) &\equiv wp(if(...), wp(i=i-1, I)) \\
+    &\equiv wp(if(...), def(i-1) \yLuego I(i-1)) \\
+    &\equiv def(s[i]=e) \yLuego (s[i]=e \wedge wp(j=i, I(i-1))) \vee (s[i]\neq e \wedge wp(skip, I(i-1))) \\
+    &\equiv 0 \leq i < |s| \yLuego (s[i]=e \wedge I(i = i-1)(j = i)) \vee (s[i]\neq e \wedge I(i-1)) \\
+    &\equiv 0 \leq i < |s| \yLuego (s[i]=e \wedge -1 \leq i-1 \leq |s|-1 \wedge \\ 
+    &i = -1 \implies (\forall j: \ent)(i-1 \leq j < |s| \implicaLuego s[j] \neq e) \wedge \\ 
+    &i \neq -1 \implies (i-1 < i < |s| \yLuego s[i] = e)) \vee \\
+    &(s[i]\neq e \wedge -1 \leq i-1 \leq |s|-1 \wedge \\
+    &j = -1 \implies (\forall j: \ent)(i-1 \leq j < |s| \implicaLuego s[j] \neq e) \wedge \\
+    &j \neq -1 \implies (i-1 < j < |s| \yLuego s[j] = e)) \\
+\end{align*}
+
+Queda probar que $ (I \wedge B) \implies wp(S,I) $ calculada
+
+Ahora pruebo terminación del ciclo
+
+Defino $ f_v = i+1 $
+
+Para probar finalización del ciclo tengo que probar:
+\begin{enumerate}[label=(\alph*)]
+    \item $ \{ I \wedge B \wedge f_v = v_0 \} S \{ f_v < v_0 \} $
+    \item $ (I \wedge f_v \leq 0) \implies \neg B $
+\end{enumerate}
+
+Luego, $ \{ I \wedge B \wedge f_v = v_0 \} S \{ f_v < v_0 \} \iff (I \wedge B \wedge f_v = v_0) \implies wp(S, f_v < v_0) $
+\begin{align*}
+    wp(S, f_v < v_0) &\equiv wp(if(...), wp(i=i-1, f_v < v_0)) \\
+    &\equiv wp(if(...), i-1+1 < v_0) \\
+    &\equiv def(s[i]=e) \yLuego (s[i]=e \wedge wp(j=i, i-1+1 < v_0)) \vee (s[i] \neq e \wedge i-1+1 < v_0) \\
+    &\equiv 0 \leq i < |s| \yLuego i-1+1 < v_0 \\
+\end{align*}
+Luego por $ f_v = v_0 \implies i+1 = v_0 \implies i-1+1 < v_0 \equiv v_0 -1 < v_0 \iff -1 < 0 $
+
+Además, $ f_v \leq 0 \implies i+1 \leq 0 \implies i \leq -1 \iff i < 0 \equiv \neg B $
+
+Luego el ciclo es correcto y finaliza. Por monotonía queda probar que $ Pre \implies wp(S_1, S_2; P_c) $
+\begin{align*}
+    wp(S_1, S_2; P_c) &\equiv wp(S_1, wp(S_2, P_c)) \\
+    &\equiv wp(i = |s|-1, wp(j=-1, P_c)) \\
+    &\equiv wp(i = |s|-1, i = |s| -1 \wedge -1=-1) \\
+    &\equiv wp(i = |s|-1, i = |s| -1) \\
+    &\equiv def(|s|-1) \yLuego |s| -1 = |s| -1 \\
+    &\equiv True \\
+\end{align*}
+Queda ver que $ Pre \implies True \iff True \implies True $ que es verdadero y por lo tanto el programa es correcto respecto a su especificación.
+
+\subsection{Ejercicio 12}
+
+Divido la demostración en:
+\begin{enumerate}[label=(\alph*)]
+    \item Codigo antes del ciclo $ Pre \implies wp(A, P_c) $
+    \item Demostración de correctitud del ciclo usando el teorema del invariante
+    \item Código posterior al ciclo $ Q_c \implies wp(C, Post) $
+\end{enumerate}
+
+\textbf{Demostración (c)}
+
+Calculo,
+\begin{align*}
+    wp(if(...), Post) &\equiv def(j \neq -1) \yLuego (j \neq -1 \wedge wp(r = True, Post)) \vee \\
+    &\qquad \qquad \qquad \qquad \; \:( j = -1 \wedge wp(r = false, Post)) \\
+    &\equiv (j \neq -1 \wedge wp(r = True, Post)) \vee \\
+    &\quad \;( j = -1 \wedge wp(r = false, Post)) \\
+    &\equiv (j \neq -1 \wedge true = true \iff ((\exists k: \ent)(0 \leq k < |s| \yLuego s[k]=e))) \vee \\
+    &\quad \;( j = -1 \wedge false = true \iff ((\exists k: \ent)(0 \leq k < |s| \yLuego s[k]\neq e)))
+\end{align*}
+
+\textbf{Demostración (b)}
+
+Defino,
+\begin{itemize}
+    \item $ P_c \equiv i = 0 \wedge j = -1 $
+    \item $ Q_c \equiv (c) $
+    \item $ I \equiv 0 \leq i \leq |s| \wedge (j \neq -1 \implies (\exists k: \ent)(0 \leq k < i \yLuego s[k]=e)) \wedge (j = -1 \implies (\exists k: \ent)(0 \leq k < i \yLuego s[k]\neq e)) $
+    \item $ B \equiv i \geq |s| $
+\end{itemize}
+Para probar la correctitud parcial del ciclo tengo que demostrar que valen:
+\begin{enumerate}[label=(\alph*)]
+    \item $ P_c \implies I $
+    \item $ \{ I \wedge B \} S \{ I \} $
+    \item $ (I \wedge \neg B) \implies Q_c $
+\end{enumerate}
+
+\textbf{Demostración (b.a)}
+
+Se que $ i = 0 \wedge j = -1 $ luego $ 0 \leq 0 \leq |s| $ es verdadero, la implicación de $ j \neq -1 $ es verdadera, la implicación de $ j = -1 $ es verdadera pues el antecedente del $ \exists $ es falso.
+
+\textbf{Demostración (b.c)}
+
+$ (I \wedge \neg B) \implies i = |s| $ y por lo tanto para este valor de i, las dos ramas del invariante son iguales a las de $ Q_c $
+
+\textbf{Demostración (b.b)}
+
+$ \{ I \wedge B \} S \{ I \} \iff (I \wedge B) \implies wp(S, I) $
+
+TODO
+
+\subsection{Ejercicio 13}
+TODO
+
+\subsection{Ejercicio 14}
+TODO
+
+\subsection{Ejercicio 15}
+TODO
+
 \end{document}
