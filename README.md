@@ -43,6 +43,7 @@ Actualizaciones
 | 6   | C++      | Testing                      | [enunciado]( https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo06.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%206) |
 | 7   | C++      | Matrices                     | [enunciado]( https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo07.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%207) |
 | 8   | C++      | Strings                     | [enunciado]( https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo08.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%208) |
+| 8   | C++      | Complejidad                     | [enunciado]( https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo09.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%209) |
 
 ## Entregas
 
