@@ -21,6 +21,7 @@ set(SOURCE_FILES main.cpp
         test/esTriangularTEST.cpp
         test/hayAmenazaTEST.cpp
         test/diferenciaDiagonalesTEST.cpp
+        test/tatetiTEST.cpp
         )
 
 add_executable(Labo7 ${SOURCE_FILES})

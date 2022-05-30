@@ -151,6 +151,7 @@ bool hayAmenaza(vector<vector<int> > m){
 	return false;
 }
 
+// Ejercicio 8
 int diferenciaDiagonales(vector<vector<int> > m) {
     int d1 = 0;
     int d2 = 0;
@@ -159,4 +160,36 @@ int diferenciaDiagonales(vector<vector<int> > m) {
         d2 += m[i][m.size() - i - 1];
     }
     return abs(d1-d2);
+}
+
+// Adicional: TaTeTi
+int tateti(vector<vector<int> > m){
+    int resultado = 2;
+    int puntJugadorUno = 1;
+    int puntJugadorDos = 1;
+    vector<int> primos = {2,3,5,7,11,13,17,19,23};
+    vector<int> ganadores = {2*3*5, 7*11*13, 17*19*23, 2*7*17, 3*11*19, 5*13*23, 2*11*23, 5*11*17};
+    // Asigno puntajes para cada jugador
+    for (int i = 0; i < m.size(); ++i) {
+        for (int j = 0; j < m[0].size(); ++j) {
+            if (m[i][j] == 0) {
+                puntJugadorUno *= primos[3*i+j];
+            } else if (m[i][j] == 1) {
+                puntJugadorDos *= primos[3*i+j];
+            } else {
+                resultado = 3;
+            }
+        }
+    }
+    // Verifico si hay ganador
+    int i = 0;
+    while (i < ganadores.size() && (resultado == 2 || resultado == 3) ){
+        if (puntJugadorUno % ganadores[i] == 0) {
+            resultado = 0;
+        } else if (puntJugadorDos % ganadores[i] == 0) {
+            resultado = 1;
+        }
+        i++;
+    }
+    return resultado;
 }

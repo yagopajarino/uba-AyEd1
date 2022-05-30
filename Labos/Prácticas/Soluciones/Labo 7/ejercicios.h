@@ -15,3 +15,4 @@ int contarPicos(vector<vector<int> > m);
 bool esTriangular(vector<vector<int> > m);
 bool hayAmenaza(vector<vector<int> > m);
 int diferenciaDiagonales(vector<vector<int> > m);
+int tateti(vector<vector<int> > m);
