@@ -23,13 +23,13 @@ Actualizaciones
 
 | Nro | Enunciado                                                                                                        | Resolucion                                                                                                       |
 |-----|------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
-| 1   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%201.pdf) | [solución](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Soluciones/Pr%C3%A1ctica%201.pdf)  |
-| 2   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%202.pdf) | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%202.pdf) |
-| 3   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%203.pdf) | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%203.pdf) |
-| 4   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%204.pdf) | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%204.pdf) |
-| 5   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%205.pdf) | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%205.pdf) |
-| 6   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%206.pdf) | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%206.pdf) |
-| 7   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%207.pdf) | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%207.pdf) |
+| 1   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%201.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Soluciones/Pr%C3%A1ctica%201.pdf)  |
+| 2   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%202.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%202.pdf) |
+| 3   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%203.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%203.pdf) |
+| 4   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%204.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%204.pdf) |
+| 5   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%205.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%205.pdf) |
+| 6   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%206.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%206.pdf) |
+| 7   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%207.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/blob/main/Pr%C3%A1cticas/Enunciados/Pr%C3%A1ctica%207.pdf) |
 
 
 ## Laboratorios
