@@ -46,9 +46,11 @@ Actualizaciones
 
 ## Entregas
 
-* [Entrega 1 C++](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega1/Enunciados) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega1/Resoluciones)
-* [Entrega 2 C++](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega2/Enunciados) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega2/Resoluciones)
-* [Entrega 3 C++](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega3/Enunciados) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega3/Resoluciones)
+| Nro | Enunciado                                                                                           | Resolución                                                                                            |
+|-----|-----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| 1   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega1/Enunciados)  | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega1/Resoluciones) |
+| 2   | [enunciado]( https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega2/Enunciados) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega2/Resoluciones) |
+| 3   | [enunciado]( https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega3/Enunciados) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega3/Resoluciones) |
 
 ## Contribuciones
 
