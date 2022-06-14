@@ -4,10 +4,6 @@
 Lic. en ciencias de la computación \
 Universidad de Buenos Aires
 
-Actualizaciones
-
-2022/05/12 | Recién subí la práctica 6 que la hice directamente en latex con flujos en [Diagrams](https://app.diagrams.net/?src=about). Estos días voy a estar pasando las prácticas 4 y 5
-
 ## Teóricas
 
 - [Teórica 1](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%201.pdf)
