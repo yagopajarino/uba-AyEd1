@@ -76,3 +76,53 @@ No cambian los valores dependiendo el valor de los elementos de _v_.
 | 1000   | 0.003    | 0.002          | 0.001        | 0     | 0.001         | 0        | 0.002             | 0.001    | 0.012     |
 | 10000  | 0.001    | 0.001          | 0.001        | 0.001 | 0             | 0.001    | 0                 | 0.001    | 0.088     |
 | 100000 | 0.004    | 0              | 0.001        | 0.001 | 0.001         | 0.001    | 0.001             | 0.004    | 0.93      |
+
+## Ejercicio 4
+
+```C++
+int indicePico (vector <int > v) {
+    if (v[0] >= v[1]) {
+        return 0;
+    } else if (v[v.size() - 1] >= v[v.size() - 2]) {
+        return v.size()-1;
+    } else {
+        int i = 1;
+        while (i < v.size()-1 && !(v[i] >= v[i-1] && v[i] >= v[i+1])) {
+            i++;
+        }
+        return i;
+    }
+}
+```
+
+## Ejercicio 5
+
+```C++
+int puntoFijo (vector <int > v) {
+    int i = 0;
+    while ( i < v.size() && v[i] != i ){
+        i++;
+    }
+    return i == v.size() ? -1 : i;
+}
+```
+
+## Ejercicio 6
+
+TODO
+
+## Ejercicio 7
+
+```C++
+int menorMasGrande (vector <int > v, int x) {
+    int i = 0;
+    while (i < v.size() && v[i] <= x){
+        i++;
+    }
+    return i == v.size() ? -1 : i;
+}
+```
+
+## Ejercicio 8
+
+TODO
