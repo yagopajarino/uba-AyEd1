@@ -8,6 +8,9 @@ set(SOURCE_FILES main.cpp
         src/ejercicios.cpp
         src/ejercicios.h
         tests/busquedaBinariaTEST.cpp
+        tests/jumpSearchTEST.cpp
+        tests/sortTEST.cpp
+        tests/menorMasGrandeTEST.cpp
         )
 
 set(CMAKE_CXX_FLAGS -std=c++17)
