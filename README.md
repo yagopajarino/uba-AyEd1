@@ -43,7 +43,7 @@ Universidad de Buenos Aires
 | 8   | C++      | Strings                      | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo08.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%208)  |
 | 9   | C++      | Complejidad                  | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo09.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%209)  |
 | 10  | C++      | Searching                    | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo10.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%2010) |
-| 11  | C++      | Searching                    | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo11.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%2011) |
+| 11  | C++      | Sorting                      | [enunciado](https://github.com/yagopajarino/uba-AyEd1/blob/main/Labos/Pr%C3%A1cticas/Enunciados/enunciado_labo11.pdf) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/Labos/Pr%C3%A1cticas/Soluciones/Labo%2011) |
 
 ## Entregas
 
