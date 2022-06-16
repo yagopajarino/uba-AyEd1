@@ -105,3 +105,39 @@ int menorMasGrande (vector <int > v, int x) {
     }
     return i == v.size() ? -1 : i;
 }
+
+// InsertionSort
+void insert(vector<int> &s, int i) {
+    for (int j = i; j > 0 && s[j] > s[j-1]; j--) {
+        int temp = s[j-1];
+        s[j-1] = s[j];
+        s[j] = temp;
+    }
+}
+
+void insertionSort(vector<int> &s) {
+    for (int i = 0; i < s.size(); i++) {
+        insert(s,i);
+    }
+}
+
+// CountSort
+vector<int> count(vector<int> &v) {
+    vector<int> res(150, 0);
+    for (int i = 0; i < v.size(); ++i) {
+        res[v[i]] = res[v[i]] + 1;
+    }
+    return res;
+}
+
+void countSort(vector<int> &v) {
+    vector<int> c = count(v);
+    int pos = 0;
+    for (int i = c.size()-1; i >= 0; --i) {
+        while (c[i] > 0) {
+            v[pos] = i;
+            c[i] = c[i] - 1;
+            pos++;
+        }
+    }
+}

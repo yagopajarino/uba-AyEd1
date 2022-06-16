@@ -11,6 +11,8 @@ set(SOURCE_FILES main.cpp
         tests/jumpSearchTEST.cpp
         tests/sortTEST.cpp
         tests/menorMasGrandeTEST.cpp
+        tests/insertionSortTEST.cpp
+        tests/countigSortTEST.cpp
         )
 
 set(CMAKE_CXX_FLAGS -std=c++17)
@@ -20,3 +22,4 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 add_executable(labo10 ${SOURCE_FILES})
 
 target_link_libraries(labo10 gtest gtest_main)
+
