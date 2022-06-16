@@ -8,10 +8,12 @@
 using namespace std;
 
 void insert(vector<int> &s, int i) {
-    for (int j = i; j > 0 && s[j] < s[j-1]; j--) {
-        int temp = s[j];
-        s[j] = s[j-1];
-        s[j-1] = s[temp];
+    for (int j = i; j > 0; j--) {
+        if (s[j] > s[j-1]) {
+            int temp = s[j];
+            s[j] = s[j-1];
+            s[j-1] = s[temp];
+        }
     }
 }
 
@@ -42,19 +44,22 @@ void selectionSort(vector<int>& v) {
 }
 
 void ordenar(vector<int> &items){
-    double clock_per_milisecond = CLOCKS_PER_SEC / 1000;
     double t0 = clock();
-    selectionSort(items);
+    insertionSort(items);
     double t1 = clock();
     double timeSelection = (t1 - t0) / CLOCKS_PER_SEC;
 
+/*
     t0 = clock();
     selectionSort(items);
     t1 = clock();
     double timeInsertion = (t1 - t0) / CLOCKS_PER_SEC;
+*/
 
     cout << "timeSelection: " << timeSelection << endl;
+/*
     cout << "timeInsertion: " << timeInsertion << endl;
+*/
 }
 
 
