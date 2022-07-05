@@ -52,6 +52,7 @@ Universidad de Buenos Aires
 | 1   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega1/Enunciados) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega1/Resoluciones) |
 | 2   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega2/Enunciados) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega2/Resoluciones) |
 | 3   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega3/Enunciados) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega3/Resoluciones) |
+| 4   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega4/Enunciados) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega4/Resoluciones) |
 
 ## Contribuciones
 
