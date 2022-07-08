@@ -4,16 +4,7 @@
 Lic. en ciencias de la computación \
 Universidad de Buenos Aires
 
-## Teóricas
-
-- [Teórica 1](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%201.pdf)
-- [Teórica 2](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%202.pdf)
-- [Teórica 3](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%203.pdf)
-- [Teórica 4](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%204.pdf)
-- [Teórica 5](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%205.pdf)
-- [Teórica 6](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%206.pdf)
-- [Teórica 7](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%207.pdf)
-- [Teórica 8](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%208.pdf)
+[![Invitame un café en cafecito.app](https://cdn.cafecito.app/imgs/buttons/button_1.svg)](https://cafecito.app/yagopajarino)
 
 ## Prácticas
 
@@ -52,7 +43,19 @@ Universidad de Buenos Aires
 | 1   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega1/Enunciados) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega1/Resoluciones) |
 | 2   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega2/Enunciados) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega2/Resoluciones) |
 | 3   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega3/Enunciados) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega3/Resoluciones) |
+| 4   | [enunciado](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega4/Enunciados) | [resolución](https://github.com/yagopajarino/uba-AyEd1/tree/main/EntregasLabos/Entrega4/Resoluciones) |
+
+## Teóricas
+
+- [Teórica 1](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%201.pdf)
+- [Teórica 2](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%202.pdf)
+- [Teórica 3](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%203.pdf)
+- [Teórica 4](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%204.pdf)
+- [Teórica 5](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%205.pdf)
+- [Teórica 6](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%206.pdf)
+- [Teórica 7](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%207.pdf)
+- [Teórica 8](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%208.pdf)
 
 ## Contribuciones
 
-Para contribuir con ejercicios que falten o con errores que se encuentren, abrir un [issue](https://github.com/yagopajarino/uba-AyEd1/issues) o hacer un [pull request](https://github.com/yagopajarino/uba-AyEd1/pulls).
+Si tenés alguna duda o querés agregar la resolución de alguno de los ejercicios faltantes, podés abrir un [issue](https://github.com/yagopajarino/uba-AyEd1/issues) o directamente hacer un nuevo [pull request](https://github.com/yagopajarino/uba-AyEd1/pulls).
