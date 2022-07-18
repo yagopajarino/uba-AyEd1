@@ -55,6 +55,10 @@ Universidad de Buenos Aires
 - [Teórica 6](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%206.pdf)
 - [Teórica 7](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%207.pdf)
 - [Teórica 8](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%208.pdf)
+- [Teórica 9](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%209.pdf)
+- [Teórica 10](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%2010.pdf)
+- [Teórica 11](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%2011.pdf)
+- [Teórica 12](https://github.com/yagopajarino/uba-AyEd1/blob/main/Te%C3%B3ricas/Te%C3%B3rica%2012.pdf)
 
 ## Contribuciones
 
