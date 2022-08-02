@@ -62,4 +62,4 @@ Universidad de Buenos Aires
 
 ## Contribuciones
 
-Si tenés alguna duda o querés agregar la resolución de alguno de los ejercicios faltantes, podés abrir un [issue](https://github.com/yagopajarino/uba-AyEd1/issues) o directamente hacer un nuevo [pull request](https://github.com/yagopajarino/uba-AyEd1/pulls).
+Si tenés alguna duda o querés agregar la resolución de alguno de los ejercicios faltantes, podés abrir un [issue](https://github.com/yagopajarino/uba-AyEd1/issues) o directamente abrir un [pull request](https://github.com/yagopajarino/uba-AyEd1/pulls).
