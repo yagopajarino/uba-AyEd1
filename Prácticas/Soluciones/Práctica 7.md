@@ -108,9 +108,9 @@ vector<int> duplicarElementos(vector<int> s) {
     vector<int> result(s.size());
     int i = 0;
     while (i < s.size() / 2) {
-        result[s.size() - 2*i - 1] = s[s.size() - 2*i - 1] * 2;
-        result[s.size() - 2*i - 2] = s[s.size() - 2*i - 2] * 2;
         i++;
+        result[s.size() - 2*i + 1] = s[s.size() - 2*i - 1] * 2;
+        result[s.size() - 2*i + 2] = s[s.size() - 2*i - 2] * 2;
     }
     return result;
 }
