@@ -102,7 +102,6 @@ $ I \equiv (|s| = |S_0| \wedge (0 \leq i \leq |s|/2)) \wedge_L subseq(s, 0, |s|-
 
 Mirando el invariante, veo que en cada iteración se duplican dos elementos de la secuencia y lo hace desde el final hacia adelante.
 
-Creo que el invariante no es correcto pues para $i = 0$ el para todo del invariante se indefine. Lo voy a resolver con un $<$ estricto.
 
 ```C++
 vector<int> duplicarElementos(vector<int> s) {
@@ -111,6 +110,7 @@ vector<int> duplicarElementos(vector<int> s) {
     while (i < s.size() / 2) {
         result[s.size() - 2*i - 1] = s[s.size() - 2*i - 1] * 2;
         result[s.size() - 2*i - 2] = s[s.size() - 2*i - 2] * 2;
+        i++;
     }
     return result;
 }
